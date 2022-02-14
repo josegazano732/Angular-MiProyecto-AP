@@ -6,6 +6,8 @@ import { EncabezadoComponent } from './componentes/encabezado/encabezado.compone
 import { ImgAcercaComponent } from './componentes/img-acerca/img-acerca.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-skill.component';
+import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
     EncabezadoComponent,
     ImgAcercaComponent,
     ExperienciasComponent,
-    EducacionComponent
+    EducacionComponent,
+    HardSoftSkillComponent,
+    PiePaginaComponent
   ],
   imports: [
     BrowserModule
