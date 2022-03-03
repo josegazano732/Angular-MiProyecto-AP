@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MaterialModule } from './material.module';
+
+
+
+
 
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
@@ -11,6 +14,7 @@ import { ExperienciasComponent } from './componentes/experiencias/experiencias.c
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-skill.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
+
 
 
 @NgModule({
@@ -26,8 +30,10 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule
+    MaterialModule
+  
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
