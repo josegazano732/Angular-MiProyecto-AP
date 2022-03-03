@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HardSoftSkillComponent implements OnInit {
 
+  progreso = 10;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -8,6 +8,9 @@ import {MatDividerModule} from '@angular/material/divider';
 
 
 
+
+
+
 @NgModule({
   declarations: [],
   exports: [
@@ -16,7 +19,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule,
+   
+
   ]
 })
 export class MaterialModule { }
