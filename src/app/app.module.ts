@@ -8,6 +8,7 @@ import { ExperienciasComponent } from './componentes/experiencias/experiencias.c
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-skill.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
     PiePaginaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -161,6 +161,8 @@ footer {
     width: 0;
 }
 
+/* Fin de Skill*/
+
 
 
 
@@ -245,3 +247,7 @@ footer p {
 .bounceInLeft, .bounceInRight, .fadeInUp {
     visibility: visible;
 }
+
+/* Fin de footer */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
