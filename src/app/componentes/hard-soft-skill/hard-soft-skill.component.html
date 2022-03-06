@@ -48,31 +48,41 @@
                     <h6 class="skill-title">Javascript</h6>
                     <div class="skill-percentage">
                         <div class="count-box counted">
-                            <span class="counter">50</span>
+                            <span class="counter">{{ java }}</span>
                         </div>
                         %
                     </div>
                 </div>
-                <div class="skill-bar">
-                    <div class="bar-inner">
-                        <div class="bar progress-line" data-width="50" style="width: 80%;"></div>
+                <div class="">
+                    <div class="skill-bar">
+                        <div class="bar-inner">
+                            <div class="">
+                                <div class="bar progress-line" data-width="" style="width: {{ java }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-auto">
+                        <button class="m-1" (click)="acumular()">+</button>
+                        <button class="m-1">-</button>
                     </div>
                 </div>
             </div>
+
             <!-- skill item -->
             <div class="skill-item mt-25 m-3">
                 <div class="skill-header">
                     <h6 class="skill-title">Typescript</h6>
                     <div class="skill-percentage">
                         <div class="count-box counted">
-                            <span class="counter">{{porcentaje}}</span>
+                            <span class="counter">{{ porcentaje }}</span>
                         </div>
                         %
                     </div>
                 </div>
                 <div class="skill-bar">
                     <div class="bar-inner">
-                        <div class="bar progress-line" data-width="90" [ngStyle]="{width: porcentaje}"></div>  <!--style="width: {{porcentaje}}%;"-->
+                        <div class="bar progress-line" data-width="90" [ngStyle]="{porcentaje}"></div>
+                        <!--style="width: {{porcentaje}}%;"-->
                     </div>
                 </div>
             </div>
@@ -83,5 +93,4 @@
 
     <mat-progress-bar mode="determinate" [value]="progreso"></mat-progress-bar>
     <mat-spinner></mat-spinner>
-    
-    
+</div>

@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HardSoftSkillComponent implements OnInit {
 
-  progreso = 10;
-  porcentaje:number= 40;
+  progreso = 80;
+  valor=""
+  java = 10;
+  porcentaje = {
+    width:'60%'
+  }
+
+  acumular(){
+    if (this.java >= 100){
+      this.java = 10;
+      alert("Sobrepaso el maximo permitido");
+    }
+    this.java += 10;
+  }
+  
 
   constructor() { }
 
