@@ -1,6 +1,9 @@
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
+import { Skill } from 'src/app/skill';
+import { SKILL } from 'src/app/mock-skill';
+
 @Component({
   selector: 'app-hard-soft-skill',
   templateUrl: './hard-soft-skill.component.html',
@@ -8,19 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HardSoftSkillComponent implements OnInit {
 
-  progreso = 80;
-  valor=""
-  java = 10;
-  porcentaje = {
-    width:'60%'
-  }
+  detalle = SKILL;
 
-  acumular(){
-    if (this.java >= 100){
-      this.java = 10;
-      alert("Sobrepaso el maximo permitido");
-    }
-    this.java += 10;
+  progreso = 80;
+  //valor=""
+  //javaScript:number = 10;
+  porcentajeType:number = 30;
+
+
+
+  acumularDos(valor:number,valor2?:string ){
+    this.porcentajeType += valor;
+
+    
+
+
   }
   
 

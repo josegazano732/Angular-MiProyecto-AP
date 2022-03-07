@@ -9,88 +9,41 @@
 <div class="container justify-content-center">
     <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-5">
         <div class="about-skills pt-25">
-            <div class="skill-item mt-25 m-3">
-                <div class="skill-header">
-                    <h6 class="skill-title">HTML</h6>
-                    <div class="skill-percentage">
-                        <div class="count-box counted">
-                            <span class="counter">80</span>
-                        </div>
-                        %
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="bar-inner">
-                        <div class="bar progress-line" data-width="80" style="width: 55%;"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- skill item -->
-            <div class="skill-item mt-25 m-3">
-                <div class="skill-header">
-                    <h6 class="skill-title">CSS</h6>
-                    <div class="skill-percentage">
-                        <div class="count-box counted">
-                            <span class="counter">60</span>
-                        </div>
-                        %
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="bar-inner">
-                        <div class="bar progress-line" data-width="60" style="width: 73%;"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- skill item -->
-            <div class="skill-item mt-25 m-3">
-                <div class="skill-header">
-                    <h6 class="skill-title">Javascript</h6>
-                    <div class="skill-percentage">
-                        <div class="count-box counted">
-                            <span class="counter">{{ java }}</span>
-                        </div>
-                        %
-                    </div>
-                </div>
-                <div class="">
-                    <div class="skill-bar">
-                        <div class="bar-inner">
-                            <div class="">
-                                <div class="bar progress-line" data-width="" style="width: {{ java }}%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto">
-                        <button class="m-1" (click)="acumular()">+</button>
-                        <button class="m-1">-</button>
-                    </div>
-                </div>
-            </div>
+            
+           
+           
 
             <!-- skill item -->
-            <div class="skill-item mt-25 m-3">
-                <div class="skill-header">
-                    <h6 class="skill-title">Typescript</h6>
-                    <div class="skill-percentage">
-                        <div class="count-box counted">
-                            <span class="counter">{{ porcentaje }}</span>
+            <ul>
+                <li *ngFor="let sk of detalle">
+                    <div class="skill-item mt-25 m-3">
+                        <div class="skill-header">
+                            <h6 class="skill-title">{{sk.nombre}}</h6>
+                            <div class="skill-percentage">
+                                <div class="count-box counted">
+                                    <span class="counter">{{ sk.valor }}</span>
+                                </div>
+                                %
+                            </div>
                         </div>
-                        %
+                        <div class="skill-bar">
+                            <div class="bar-inner">
+                                <div class="bar progress-line" data-width="90" [ngStyle]="{'width.%':sk.valor}">
+                                </div>
+                                <!--style="width: {{porcentaje}}%;"-->
+                            </div>
+                        </div>
+                        <div class="m-auto">
+                            <button class="m-1" (click)="acumularDos(5)">+</button>
+                            <button class="m-1" (click)="acumularDos(-5)">-</button>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="bar-inner">
-                        <div class="bar progress-line" data-width="90" [ngStyle]="{porcentaje}"></div>
-                        <!--style="width: {{porcentaje}}%;"-->
-                    </div>
-                </div>
-            </div>
+                </li>
+            </ul>
             <!-- skill item -->
         </div>
         <!-- about skills -->
     </div>
 
-    <mat-progress-bar mode="determinate" [value]="progreso"></mat-progress-bar>
-    <mat-spinner></mat-spinner>
+
 </div>
