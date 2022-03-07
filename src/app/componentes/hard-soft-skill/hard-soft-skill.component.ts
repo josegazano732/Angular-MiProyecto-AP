@@ -20,8 +20,10 @@ export class HardSoftSkillComponent implements OnInit {
 
 
 
-  acumularDos(valor:number,valor2?:string ){
-    this.porcentajeType += valor;
+  acumularDos(valorNombre:string,valor:number ){
+   // this.porcentajeType += valor;
+    //this.detalle[1].valor += valor1 ;
+    this.detalle.[0] = valorNombre;
 
     
 
