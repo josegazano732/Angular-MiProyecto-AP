@@ -25,22 +25,24 @@ export class HardSoftSkillComponent implements OnInit {
 
 
   acumularDos(valor1:string, valor2:number){
-    
     this.detalle.forEach(function(x,index): number | undefined{
     //return x.valor + valor1;
     if (x.nombre == valor1) {
-      return x.valor += valor2;
-      
-      
-      
+      return x.valor += valor2;  
     }
     else {
       return undefined;
-      ;
-    } 
-    
-    
+    }
   });
+
+  this.detalle.forEach(function(x,index){
+    //return x.valor + valor1;
+    if (x.valor <= -1 || x.valor >= 101) {
+      x.valor = 0;
+      alert("VALOR EXCEDIDO, volver a intentarlo");  
+    }
+  });
+  
   
   
 
