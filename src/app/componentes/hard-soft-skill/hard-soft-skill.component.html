@@ -10,9 +10,12 @@
     <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-5">
         <div class="about-skills pt-25">
             
+            <h2 class=" text-center m-4">Esto es un Titulo</h2>
+        
+            
             <!-- skill item -->
-            <ul>
-                <li *ngFor="let sk of detalle">
+            <ul *ngFor="let sk of detalle">
+                <li>
                     <div class="skill-item mt-25 m-3">
                         <div class="skill-header">
                             <h6 class="skill-title">{{sk.nombre}}</h6>
@@ -31,8 +34,8 @@
                             </div>
                         </div>
                         <div class="m-auto">
-                            <button class="m-1" (click)="acumularDos('sk.nombre',5)">+</button>
-                            <button class="m-1">-</button>
+                            <button class="m-1" (click)="acumularDos(sk.nombre,+5)">+</button>
+                            <button class="m-1" (click)="acumularDos(sk.nombre,-5)">-</button>
                         </div>
                     </div>
                 </li>
@@ -44,3 +47,5 @@
 
 
 </div>
+
+

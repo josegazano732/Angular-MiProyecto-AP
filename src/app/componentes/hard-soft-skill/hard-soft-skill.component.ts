@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Skill } from 'src/app/skill';
 import { SKILL } from 'src/app/mock-skill';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-hard-soft-skill',
@@ -16,19 +17,35 @@ export class HardSoftSkillComponent implements OnInit {
   progreso = 80;
   //valor=""
   //javaScript:number = 10;
-  porcentajeType:number = 30;
+  porcentaje = 30;
+
+  x = this.detalle.forEach(e => {
+    return e.valor;
+  });
 
 
-
-  acumularDos(valorNombre:string,valor:number ){
-   // this.porcentajeType += valor;
-    //this.detalle[1].valor += valor1 ;
-    this.detalle.[0] = valorNombre;
-
+  acumularDos(valor1:string, valor2:number){
     
-
+    this.detalle.forEach(function(x,index): number | undefined{
+    //return x.valor + valor1;
+    if (x.nombre == valor1) {
+      return x.valor += valor2;
+      
+      
+      
+    }
+    else {
+      return undefined;
+      ;
+    } 
+    
+    
+  });
+  
+  
 
   }
+  
   
 
   constructor() { }
