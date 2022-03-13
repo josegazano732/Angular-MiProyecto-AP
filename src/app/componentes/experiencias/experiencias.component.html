@@ -1,13 +1,67 @@
-<div class=" container-fluid">
+<div class="container-fluid">
     <div class="m-5">
-        <hr class=" container" style="margin-left: auto; margin-right: auto; margin-top: 2rem;">
-        <div class=" container d-flex justify-content-center align-content-center">
-            <h1 class=" display-4 texto-1 text-center"> Experiencia</h1>
+        <hr class="container" style="margin-left: auto; margin-right: auto; margin-top: 2rem;" />
+        <div class="container d-flex justify-content-center align-content-center">
+            <h1 class="display-4 texto-1 text-center">Experiencia</h1>
         </div>
-        <hr class=" container " style=" margin-left: auto; margin-right: auto;">
+        <hr class="container" style="margin-left: auto; margin-right: auto;" />
     </div>
     <section class="container" style="">
         <!-- Experiencia N° 1-->
+        <div class="">
+            <div class=" d-flex justify-content-end">
+                <img src="/assets/iconos/add-circle.svg" class=" m-3" style="height: 3%; width: 3%;" alt=""
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregue su nueva experiencia</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Nombre Empresa</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                        placeholder="lugar de trabajo">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Inicio de actividad</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                        placeholder="Año">
+                                        <label for="formGroupExampleInput" class="form-label">Fin de actividad</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                        placeholder="Año">
+                                </div>
+
+                                <div class="mb-3">
+                                    <span class="input-group-text">Detallar actividades realizadas</span>
+                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                  </div>
+
+                                <div class="mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Agregar logo de Empresa</label>
+                                    <input type="file" class="form-control" aria-label="file example" required>
+                                    <div class="invalid-feedback">Example invalid form file feedback</div>
+                                  </div>
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col-12 m-1">
@@ -15,45 +69,47 @@
                         <div class="card text-white bg-success mb-3" style="width: 50rem;">
                             <div class="card-header d-flex justify-content-between" id="lugarTrabajo">
                                 <h4 id="edit-titulo">Previsora Del Parana SRL</h4>
-                                <div class="">
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </div>
-
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Año 2016 - Actualmente </h5>
-                                <p class="">* Encargado de salon de ventas y area administrativa. </p>
-                                <p class="">* Administracion Unidad de Negocio Supermercado y Electrodomestico. </p>
-                                <p class="">* Analisis crediticio. </p>
+                                <h5 class="card-title">Año 2016 - Actualmente</h5>
+                                <p class="">
+                                    * Encargado de salon de ventas y area administrativa.
+                                </p>
+                                <p class="">
+                                    * Administracion Unidad de Negocio Supermercado y
+                                    Electrodomestico.
+                                </p>
+                                <p class="">* Analisis crediticio.</p>
                             </div>
                         </div>
-                       
-                        <div class=" d-flex p-0">
+
+                        <div class="d-flex p-0">
                             <div class="">
-                                <div class=" d-flex justify-content-end">
-                                    <i class="fa-solid fa-camera m-3" style="position: absolute; z-index: 1;"></i>
-                                   
-                                </div>
-                                
-                                <img src="/assets/img/prevLogo.jpeg" class="img-fluid align-items-center " alt=""
-                                style="height: 100%; width: 100%; padding-bottom: 1rem; border-radius: 0.2rem;">
+                                <img src="/assets/img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
+                    height: 100%;
+                    width: 100%;
+                    padding-bottom: 1rem;
+                    border-radius: 0.2rem;
+                  " />
                             </div>
-                            
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
         <!-- Experiencia N° 2-->
-        <div class="container d-flex justify-content-center ">
+        <div class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col-12 m-1">
                     <div class="d-flex justify-content-between">
-                        <div class=" d-flex p-0">
-                            <img src="img/FYF.png" class="img-fluid align-items-center" alt=""
-                                style="height:15rem; width: 15rem; padding-bottom: 1rem; border-radius: 0.2rem;">
+                        <div class="d-flex p-0">
+                            <img src="img/FYF.png" class="img-fluid align-items-center" alt="" style="
+                  height: 15rem;
+                  width: 15rem;
+                  padding-bottom: 1rem;
+                  border-radius: 0.2rem;
+                " />
                         </div>
                         <div class="card text-white bg-danger mb-3" style="width: 50rem;">
                             <div class="card-header">
@@ -61,8 +117,8 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Año 2014 - 2016</h5>
-                                <p class="">* Sector ventas multimarcas usados y 0 KM </p>
-                                <p class="">* Sector Gestoria. </p>
+                                <p class="">* Sector ventas multimarcas usados y 0 KM</p>
+                                <p class="">* Sector Gestoria.</p>
                                 <p class="">* Sector Analisis de credito prendarios.</p>
                             </div>
                         </div>
@@ -81,38 +137,45 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Primary card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk
-                                    of the card's content.</p>
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.
+                                </p>
                             </div>
                         </div>
-                        <div class=" d-flex p-0">
-                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt=""
-                                style="height:15rem; width: 15rem; padding-bottom: 1rem; border-radius: 0.2rem;">
+                        <div class="d-flex p-0">
+                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
+                  height: 15rem;
+                  width: 15rem;
+                  padding-bottom: 1rem;
+                  border-radius: 0.2rem;
+                " />
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
         <!-- Experiencia N° 4-->
-        <div class="container d-flex justify-content-center ">
+        <div class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col-12 m-1">
                     <div class="d-flex justify-content-between">
-                        <div class=" d-flex p-0">
-                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt=""
-                                style="height:15rem; width: 15rem; padding-bottom: 1rem; border-radius: 0.2rem;">
+                        <div class="d-flex p-0">
+                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
+                  height: 15rem;
+                  width: 15rem;
+                  padding-bottom: 1rem;
+                  border-radius: 0.2rem;
+                " />
                         </div>
                         <div class="card text-dark bg-info mb-3" style="width: 50rem;">
                             <div class="card-header">Header</div>
                             <div class="card-body">
                                 <h5 class="card-title">Success card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk
-                                    of the card's content.</p>
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -120,5 +183,4 @@
             </div>
         </div>
     </section>
-
 </div>
