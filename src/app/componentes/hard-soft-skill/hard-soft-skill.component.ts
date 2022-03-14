@@ -1,9 +1,12 @@
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
+
+
 import { Skill } from 'src/app/skill';
 import { SKILL } from 'src/app/mock-skill';
 import { __values } from 'tslib';
+import { reduce } from 'rxjs';
 
 @Component({
   selector: 'app-hard-soft-skill',
@@ -13,6 +16,14 @@ import { __values } from 'tslib';
 export class HardSoftSkillComponent implements OnInit {
 
   detalle = SKILL;
+public style = {
+  color: 'red',
+  Text: 'black'
+}
+
+  value = 50;
+
+
 
   progreso = 80;
   //valor=""

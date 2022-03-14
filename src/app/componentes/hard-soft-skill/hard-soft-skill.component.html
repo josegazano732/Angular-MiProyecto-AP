@@ -7,11 +7,7 @@
 </div>
 
 <div class="">
-    <div class="container d-flex justify-content-end">
-            <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
-                <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
-            </a>
-    </div>
+    
 
     <!-- Modal -->
     <div class="modal fade" id="modalSkill" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -45,16 +41,21 @@
     </div>
 </div>
 
-<div class="container justify-content-center">
-    <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-5">
+<div class="container justify-content-start">
+    <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-2">
         <div class="about-skills pt-25">
             
             <h2 class=" text-center m-4">Esto es un Titulo</h2>
+            <div class="container d-flex justify-content-end">
+                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
+                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
+                </a>
+        </div>
         
             
             <!-- skill item -->
             <ul *ngFor="let sk of detalle">
-                <li>
+                <li class="lista">
                     <div class="skill-item mt-25 m-3">
                         <div class="skill-header">
                             <h6 class="skill-title">{{sk.nombre}}</h6>
@@ -83,6 +84,27 @@
         </div>
         <!-- about skills -->
     </div>
+    
+    <div class=" m-5">
+        <h6>Trabajo en Equipo</h6>
+        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
+    </div>
+    <div class=" m-5">
+        <h6>Creatividad</h6>
+        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
+    </div>
+    <div class=" m-5">
+        <h6>Adaptabilidad</h6>
+        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
+    </div>
+    <div>
+        <svg class="progress" width="100" height="100">
+            <circle class="progress-circle" cx="50" cy="50" stroke="blue" r="30" fill="transparent" stroke-width="5" />
+            <text class="loading" fill="blue" x="50" y="50" alignment-baseline="middle" text-anchor="middle">ss</text>
+        </svg>
+        <span class=" loading"></span>
+    </div>
+    
 
 
 </div>

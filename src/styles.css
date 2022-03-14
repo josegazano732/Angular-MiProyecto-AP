@@ -251,3 +251,21 @@ footer p {
 /* Fin de footer */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.lista {
+    list-style: none;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .progress-circle {
+    stroke-dasharray: 189;
+    stroke-dashoffset: 189;
+  }
