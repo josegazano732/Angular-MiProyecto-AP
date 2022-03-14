@@ -7,6 +7,57 @@
     <hr class=" container " style=" margin-left: auto; margin-right: auto;">
 </div>
 
+<div class="">
+    <div class="container d-flex justify-content-end">
+            <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalEducacion">
+                <img src="/assets/iconos/plus.png" style="height: 3rem; width: 3rem;" alt="" >
+            </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Educacion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Nombre de Institucion</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Institucion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Año: inicio </label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Año">
+                            <label for="formGroupExampleInput" class="form-label">Año: finalizado</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Año">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Agregar logo de
+                                Institucion</label>
+                            <input type="file" class="form-control" aria-label="file example" required>
+                            <div class="invalid-feedback">Example invalid form file feedback</div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="container m-auto p-3">
         <!-- A property item -->

@@ -6,6 +6,45 @@
     <hr class="container" style="margin-left: auto; margin-right: auto;" />
 </div>
 
+<div class="">
+    <div class="container d-flex justify-content-end">
+            <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
+                <img src="/assets/iconos/plus.png" style="height: 3rem; width: 3rem;" alt="" >
+            </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalSkill" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Habilidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Destacar habilidad</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Habilidad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label"> Imgresar un valor de 1 a 100 </label>
+                            <input type="number" class="form-control" id="formGroupExampleInput"
+                                placeholder="Valor ">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container justify-content-center">
     <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-5">
         <div class="about-skills pt-25">
