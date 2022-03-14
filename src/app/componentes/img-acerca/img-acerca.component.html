@@ -1,11 +1,7 @@
 <div class="nombre-titulo-perfil-ft  container  ">
     <div class=" row">
-        <div class="col-3 contenedor-imagen m-auto">
-            
-            <img src="/assets/img/imagenJose.jpeg" class="imagen-foto img-fluid border border-3 border-light" alt="">   
-            <a href="">
-                <img src="/assets/iconos/add-photo2.png" class=" img-fluid" alt="" style="margin-top: -31rem; margin-left: 12rem; height: 3rem; width: 3rem;;">
-            </a>
+        <div class=" col-3 contenedor-imagen m-auto">
+            <img src="/assets/img/imagenJose.jpeg" class="imagen-foto img-fluid border border-3 border-light" alt="">
         </div>
 
         <div class="nombre-titulo fondo-s col-9 shadow m-auto p-1">
@@ -31,7 +27,8 @@
                             <li class=" nav-item">
                                 <a href="#" class=" text-decoration-none m-0">
                                     <div class="d-flex p-1">
-                                        <img src="/assets/iconos/engranajes.png" alt="" style="width: 3rem; height: 3rem;">
+                                        <img src="/assets/iconos/engranajes.png" alt=""
+                                            style="width: 3rem; height: 3rem;">
                                         <h5 class=" text-center m-auto text-light texto-3 p-2">Desarrollador
                                             Back-End
                                         </h5>
@@ -40,9 +37,72 @@
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#modalAcerca">
+                            <img src="/assets/iconos/plus.png" class=" img-fluid" alt=""
+                                style="margin-top: rem; margin-left: rem; height: 2rem; width: 2rem;">
+                        </a>
+                    </div>
+
+                     <!-- Modal -->
+            <div class="modal fade" id="modalAcerca" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Agregar nombre completo</label>
+                                <input type="text" class="form-control m-1" id="formGroupExampleInput"
+                                    placeholder="Nombre">
+                                    <input type="text" class="form-control m-1" id="formGroupExampleInput"
+                                    placeholder="Apellido">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Domicilio</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Domicilio">
+                                <label for="formGroupExampleInput" class="form-label">Fecha Nacimiento</label>
+                                <input type="date" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Fecha">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Contacto</label>
+                                <input type="tel" class="form-control m-1" id="formGroupExampleInput"
+                                    placeholder="Telefono">
+                                <input type="email" class="form-control m-1" id="formGroupExampleInput"
+                                    placeholder="Correo Electronico">    
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Sobre mi</label>
+                                <input type="text" class="form-control m-1" id="formGroupExampleInput"
+                                    placeholder="Sobre mi">    
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Agregar Foto</label>
+                                <input type="file" class="form-control" aria-label="file example" required>
+                                <div class="invalid-feedback">Example invalid form file feedback</div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
                 </div>
             </div>
-
+        </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
