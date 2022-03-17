@@ -1,0 +1,20 @@
+{
+"datosPersonal":{
+    "nombre":"Jose Luis",
+    "apellido":"Gazano",
+    "edad": 37,
+    "ubicacion":"Apostoles-Misiones",
+    "fechaNac": "11-06-1986",
+    "telefono": "3758-433106",
+    "correo": "josegazano7@outlook.com",
+    "sobreMi": "Somos el resustado...",
+    "fotoPerfil":
+    },
+
+"experiencia":{
+    "empresa":"Previsora del Parana",
+    "inicioAct":"01-03-2015"
+}
+
+    
+}

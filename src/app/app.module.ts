@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { PorfolioService } from './servicios/porfolio.service';
 
 
 
@@ -14,6 +18,10 @@ import { ExperienciasComponent } from './componentes/experiencias/experiencias.c
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-skill.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
+import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+
+
 
 
 
@@ -25,17 +33,25 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
     ExperienciasComponent,
     EducacionComponent,
     HardSoftSkillComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    InicioSesionComponent,
+    PortfolioComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   
 
     
   ],
-  providers: [],
+  providers: [
+    PorfolioService
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
