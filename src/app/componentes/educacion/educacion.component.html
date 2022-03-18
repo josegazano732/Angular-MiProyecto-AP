@@ -1,97 +1,94 @@
-<div class=" container-fluid">
-<div class="m-5">
-    <hr class=" container" style="margin-left: auto; margin-right: auto; margin-top: 2rem;">
-    <div class=" container d-flex justify-content-center align-content-center">
-        <h1 class=" display-4 texto-1 text-center"> Educacion</h1>
+<div class="container-fluid">
+    <div class="m-5">
+        <hr class="container" style="margin-left: auto; margin-right: auto; margin-top: 2rem;" />
+        <div class="container d-flex justify-content-center align-content-center">
+            <h1 class="display-4 texto-1 text-center">Educacion</h1>
+        </div>
+        <hr class="container" style="margin-left: auto; margin-right: auto;" />
     </div>
-    <hr class=" container " style=" margin-left: auto; margin-right: auto;">
-</div>
 
-<div class="">
-    <div class="container d-flex justify-content-end">
+    <div class="">
+        <div class="container d-flex justify-content-end">
             <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalEducacion">
-                <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
+                <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" />
             </a>
-    </div>
+        </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Educacion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Nombre de Institucion</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Institucion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Año: inicio </label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Año">
-                            <label for="formGroupExampleInput" class="form-label">Año: finalizado</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Año">
-                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Agregar Educacion
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">
+                                    Nombre de Institucion
+                                </label>
+                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                    placeholder="Institucion" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">
+                                    Año: inicio
+                                </label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Año" />
+                                <label for="formGroupExampleInput" class="form-label">
+                                    Año: finalizado
+                                </label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Año" />
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Agregar logo de
-                                Institucion</label>
-                            <input type="file" class="form-control" aria-label="file example" required>
-                            <div class="invalid-feedback">Example invalid form file feedback</div>
-                        </div>
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label">
+                                    Agregar logo de Institucion
+                                </label>
+                                <input type="file" class="form-control" aria-label="file example" required />
+                                <div class="invalid-feedback">
+                                    Example invalid form file feedback
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="container m-auto p-3">
-        <!-- A property item -->
-        <dl class="container-edu">
+    <div class="container">
+        <div class="container m-auto p-3">
+            <!-- A property item -->
+            <ul class="lista">
+                <li *ngFor="let edu of eduList">
+                    <dl class="container-edu">
+                        <!-- Propiedad nombre -->
+                        <dt>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <img [src]="edu.logoInst" alt="" class="img-fluid rounded-circle m-1"
+                                    style="width: 8rem;" />
+                                <h3 class="m-3"> {{edu.nombreInst}} </h3>
+                            </div>
+                        </dt>
 
-    <!-- Propiedad nombre -->
-            <dt>
-            <div class=" d-flex justify-content-between align-items-center">
-                    <img src="/assets/img/Esc236.jpeg" alt="" class="img-fluid rounded-circle m-1" style="width: 8rem;">
-                    <h3 class="m-3">Primaria Escuela N° 236</h3>
-                </div>
-            </dt>
-
-            <!-- Propiedad valor -->
-            <dd>
-                <h5>Año 1992 - 1999</h5>
-            </dd>
-        </dl>
-        <dl class="container-edu">
-
-            <!-- Propiedad nombre -->
-            <dt>
-                <div class=" d-flex justify-content-between align-items-center">
-                    <img src="/assets/img/comercio3.png" alt="" class="img-fluid rounded-circle m-1"
-                        style="width: 8rem;">
-                    <h3 class=" m-3">Secundaria Comercio N° 3</h3>
-                </div>
-            </dt>
-
-            <!-- Propiedad valor -->
-            <dd>
-                <h5>Año 1992 - 1999</h5>
-            </dd>
-        </dl>
+                        <!-- Propiedad valor -->
+                        <dd>
+                            <h5>{{edu.anioIni}} - {{edu.anioFin}}</h5>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
     </div>
-</div> 
-</div>   
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PorfolioService } from '../../servicios/porfolio.service';
 
 @Component({
   selector: 'app-img-acerca',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImgAcercaComponent implements OnInit {
 
-  constructor() { }
+  acercaList:any;
+
+  constructor(private datosAcerca:PorfolioService) { }
 
   ngOnInit(): void {
+    this.datosAcerca.obtenerDatos().subscribe(data =>{
+      //console.log(data);
+      this.acercaList=data.datosPersonal;
+      
+    })
   }
 
 }

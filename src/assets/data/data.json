@@ -8,7 +8,7 @@
     "telefono": "3758-433106",
     "correo": "josegazano7@outlook.com",
     "sobreMi": "Somos el resustado...",
-    "fotoPerfil":""
+    "fotoPerfil":"/assets/img/imagenJose.jpeg"
     },
 
 "experiencia":[{
@@ -36,15 +36,15 @@
 
 "educacion":[{
     "nombreInst":"Escuela N° 236",
-    "añoIni":1992,
-    "añoFin":1999,
-    "logoInst":""
+    "anioIni":"1992",
+    "anioFin":"1999",
+    "logoInst":"/assets/img/Esc236.jpeg"
 },
 {
     "nombreInst":"Escuela Sup. Comercio N° 3",
-    "añoIni":2000,
-    "añoFin":2004,
-    "logoInst":""
+    "anioIni":"2000",
+    "anioFin":"2004",
+    "logoInst":"/assets/img/comercio3.png"
 }
 ]    
 }

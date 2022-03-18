@@ -1,14 +1,14 @@
 <div class="nombre-titulo-perfil-ft  container  ">
     <div class=" row">
         <div class=" col-3 contenedor-imagen m-auto">
-            <img src="/assets/img/imagenJose.jpeg" class="imagen-foto img-fluid border border-3 border-light" alt="">
+            <img [src]="acercaList.fotoPerfil" class="imagen-foto img-fluid border border-3 border-light" alt="">
         </div>
 
         <div class="nombre-titulo fondo-s col-9 shadow m-auto p-1">
             <div class=" ">
                 <div class=" d-flex justify-content-evenly">
                     <div class=" m-auto">
-                        <h1 class=" text-start m-3 text-light"> Jose Luis Gazano </h1>
+                        <h1 class=" text-start m-3 text-light"> {{acercaList.nombre}}  {{acercaList.apellido}} </h1>
                         <p class=" text-center m-3 text-light">Full-Stack Developer Jr.</p>
                     </div>
                     <div class=" m-auto p-1">
