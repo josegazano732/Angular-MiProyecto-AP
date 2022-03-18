@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PorfolioService } from '../../servicios/porfolio.service';
 
 @Component({
   selector: 'app-pie-pagina',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PiePaginaComponent implements OnInit {
 
-  constructor() { }
+  pieList:any;
+
+  constructor(private pieDato:PorfolioService) { }
 
   ngOnInit(): void {
+    this.pieDato.obtenerDatos().subscribe(data =>{
+      //console.log(data.datosPersonal);
+      this.pieList=data.datosPersonal;
+    })
   }
 
 }

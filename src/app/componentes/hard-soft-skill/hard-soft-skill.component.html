@@ -6,7 +6,7 @@
     <hr class="container" style="margin-left: auto; margin-right: auto;" />
 </div>
 
-<div class="">
+
     
 
     <!-- Modal -->
@@ -39,13 +39,13 @@
             </div>
         </div>
     </div>
-</div>
+<!--  Fin de Modal -->
 
-<div class="container justify-content-start">
-    <div class="col-xl-5 offset-xl-1 col-lg-6 m-auto p-2">
-        <div class="about-skills pt-25">
+<div class="container d-flex justify-content-around p-2">
+    <div class="  ">
+        <div class="about-skills m-1">
             
-            <h2 class=" text-center m-4">Esto es un Titulo</h2>
+            <h2 class=" text-center ">Esto es un Titulo</h2>
             <div class="container d-flex justify-content-end">
                 <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
                     <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
@@ -56,7 +56,7 @@
             <!-- skill item -->
             <ul *ngFor="let sk of detalle">
                 <li class="lista">
-                    <div class="skill-item mt-25 m-3">
+                    <div class="skill-item">
                         <div class="skill-header">
                             <h6 class="skill-title">{{sk.nombre}}</h6>
                             <div class="skill-percentage">
@@ -85,21 +85,30 @@
         <!-- about skills -->
     </div>
     
-    <div class=" m-5">
-        <h6>Trabajo en Equipo</h6>
-        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
-    </div>
-    <div class=" m-5">
-        <h6>Creatividad</h6>
-        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
-    </div>
-    <div class=" m-5">
-        <h6>Adaptabilidad</h6>
-        <mat-progress-spinner [value]="value" [ngStyle]="style"></mat-progress-spinner>
+    <div class="">
+        <div class="about-skills m-1 ">
+            
+            <h2 class=" text-center">Esto es un Titulo 2</h2>
+            <div class="container d-flex justify-content-end">
+                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
+                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
+                </a>
+        </div>
+        <ul class="lista">
+            <li *ngFor="let sb of skillListB">
+                <div class=" m-auto">
+                    <div class="m-0 p-1" style="max-width: 50%; max-height: 50%;">
+                        <h6 class=" text-center">{{sb.habilidad}}</h6>
+                        <mat-progress-spinner [value]="sb.valor" mode="determinate" strokeWidth="13" class=" m-auto p-0">
+                            <h5></h5>
+                        </mat-progress-spinner>
+                    </div>
+                </div>
+                
+            </li>
+        </ul>
     </div>
     
-    
-
 
 </div>
 

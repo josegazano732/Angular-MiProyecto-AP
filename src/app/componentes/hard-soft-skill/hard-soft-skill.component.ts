@@ -1,12 +1,14 @@
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { PorfolioService } from '../../servicios/porfolio.service';
 
 
 
 import { Skill } from 'src/app/skill';
 import { SKILL } from 'src/app/mock-skill';
 import { __values } from 'tslib';
-import { reduce } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-hard-soft-skill',
@@ -16,10 +18,6 @@ import { reduce } from 'rxjs';
 export class HardSoftSkillComponent implements OnInit {
 
   detalle = SKILL;
-public style = {
-  color: 'red',
-  Text: 'black'
-}
 
   value = 50;
 
@@ -34,8 +32,9 @@ public style = {
     return e.valor;
   });
 
-
   acumularDos(valor1:string, valor2:number){
+
+
     this.detalle.forEach(function(x,index): number | undefined{
     //return x.valor + valor1;
     if (x.nombre == valor1) {
@@ -58,12 +57,17 @@ public style = {
   
 
   }
-  
-  
+  skillListD:any;
+  skillListB:any;
 
-  constructor() { }
+  constructor(private skillDato:PorfolioService) { }
 
   ngOnInit(): void {
+    this.skillDato.obtenerDatos().subscribe(data =>{
+      console.log(data.skillB);
+      this.skillListB=data.skillB;
+      
+    })
   }
 
 }

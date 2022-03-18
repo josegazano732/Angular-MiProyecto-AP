@@ -2,7 +2,8 @@
 "datosPersonal":{
     "nombre":"Jose Luis",
     "apellido":"Gazano",
-    "edad": 37,
+    "edad": "37",
+    "pais":"Argentina",
     "ubicacion":"Apostoles-Misiones",
     "fechaNac": "11-06-1986",
     "telefono": "3758-433106",
@@ -31,8 +32,7 @@
     "finAct":"01-03-2013",
     "activRealizada":"Desempeño en actividades de ventas, area administrativa en unidades de negocio Supermecado y Electrodomesticos. Analisis de credito y tambien lleve a cabo tareas en area de pso-venta",
     "logo":"/assets/img/prevLogo.jpeg"
-}
-],
+}],
 
 "educacion":[{
     "nombreInst":"Escuela N° 236",
@@ -45,6 +45,29 @@
     "anioIni":"2000",
     "anioFin":"2004",
     "logoInst":"/assets/img/comercio3.png"
-}
-]    
+}],
+"skillD":[{
+    "habilidad":"HTML",
+    "valor":"10"
+},
+{
+    "habilidad":"Javascript",
+    "valor":"15"
+}],
+"skillB":[{
+    "habilidad":"Trabajo en equipo",
+    "valor":"89"
+},
+{
+    "habilidad":"Empatia",
+    "valor":"75"
+},
+{
+    "habilidad":"Liderazgo",
+    "valor":"38"
+},
+{
+    "habilidad":"feedback",
+    "valor":"90"
+}]    
 }
