@@ -7,12 +7,12 @@
         <hr class="container" style="margin-left: auto; margin-right: auto;" />
     </div>
     <section class="container" style="">
-        <!-- Experiencia N° 1-->
+
         <div class="">
             <div class="container d-flex justify-content-end">
-                    <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia">
-                        <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
-                    </a>
+                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia">
+                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
+                </a>
             </div>
 
             <!-- Modal -->
@@ -64,125 +64,39 @@
             </div>
         </div>
 
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12 m-1">
-                    <div class="d-flex justify-content-between">
-                        <div class="card text-white bg-success mb-3" style="width: 50rem;">
-                            <div class="card-header d-flex justify-content-between" id="lugarTrabajo">
-                                <h4 id="edit-titulo">Previsora Del Parana SRL</h4>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Año 2016 - Actualmente</h5>
-                                <p class="">
-                                    * Encargado de salon de ventas y area administrativa.
-                                </p>
-                                <p class="">
-                                    * Administracion Unidad de Negocio Supermercado y
-                                    Electrodomestico.
-                                </p>
-                                <p class="">* Analisis crediticio.</p>
-                            </div>
-                        </div>
+        <!-- Experiencia N° 1-->
+        <ul class="lista">
+            <li *ngFor="let exp of experienciaList">
+                <div class="container d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col-12 m-1">
+                            <div class="d-flex justify-content-between">
+                                <div class="card text-white bg-success mb-3" style="max-width: 50rem;">
+                                    <div class="card-header d-flex justify-content-between" id="lugarTrabajo">
+                                        <h4 id="edit-titulo"> {{exp.empresa}} </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{exp.inicioAct}} - {{exp.finAct}}</h5>
+                                        <p class="">
+                                            {{exp.activRealizada}}
+                                        </p>
 
-                        <div class="d-flex p-0">
-                            <div class="">
-                                <img src="/assets/img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
-                    height: 100%;
-                    width: 100%;
-                    padding-bottom: 1rem;
-                    border-radius: 0.2rem;
-                  " />
+                                    </div>
+                                </div>
+
+                                <div class="d-flex p-0">
+                                    <div class="">
+                                        <img [src]="exp.logo" class="imagen-foto img-fluid border border-3 border-light w-auto h-auto" alt="" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
 
         <!-- Experiencia N° 2-->
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12 m-1">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex p-0">
-                            <img src="img/FYF.png" class="img-fluid align-items-center" alt="" style="
-                  height: 15rem;
-                  width: 15rem;
-                  padding-bottom: 1rem;
-                  border-radius: 0.2rem;
-                " />
-                        </div>
-                        <div class="card text-white bg-danger mb-3" style="width: 50rem;">
-                            <div class="card-header">
-                                <h4>Automotores F&F</h4>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Año 2014 - 2016</h5>
-                                <p class="">* Sector ventas multimarcas usados y 0 KM</p>
-                                <p class="">* Sector Gestoria.</p>
-                                <p class="">* Sector Analisis de credito prendarios.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Experiencia N° 3-->
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12 m-1">
-                    <div class="d-flex justify-content-between">
-                        <div class="card text-white bg-secondary mb-3" style="width: 50rem;">
-                            <div class="card-header d-flex justify-content-between">
-                                <h4>Previsora Del Parana SRL</h4>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Primary card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="d-flex p-0">
-                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
-                  height: 15rem;
-                  width: 15rem;
-                  padding-bottom: 1rem;
-                  border-radius: 0.2rem;
-                " />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Experiencia N° 4-->
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12 m-1">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex p-0">
-                            <img src="img/prevLogo.jpeg" class="img-fluid align-items-center" alt="" style="
-                  height: 15rem;
-                  width: 15rem;
-                  padding-bottom: 1rem;
-                  border-radius: 0.2rem;
-                " />
-                        </div>
-                        <div class="card text-dark bg-info mb-3" style="width: 50rem;">
-                            <div class="card-header">Header</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Success card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </section>
 </div>

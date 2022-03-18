@@ -8,13 +8,43 @@
     "telefono": "3758-433106",
     "correo": "josegazano7@outlook.com",
     "sobreMi": "Somos el resustado...",
-    "fotoPerfil":
+    "fotoPerfil":""
     },
 
-"experiencia":{
+"experiencia":[{
     "empresa":"Previsora del Parana",
-    "inicioAct":"01-03-2015"
+    "inicioAct":"01-03-2015",
+    "finAct":"17-03-2022",
+    "activRealizada":"Desempeño en actividades de ventas, area administrativa en unidades de negocio Supermecado y Electrodomesticos. Analisis de credito y tambien lleve a cabo tareas en area de pso-venta",
+    "logo":"/assets/img/prevLogo.jpeg"
+},
+{
+    "empresa":"Automotores F&F",
+    "inicioAct":"01-03-2015",
+    "finAct":"01-02-2015",
+    "activRealizada":" negocio Supermecado y Electrodomesticos. Analisifffsssssssssssssssssssssffffdddsssssssssssssssssssssssssss de credito y tambien lleve a cabo tareas en area de pso-venta",
+    "logo":"/assets/img/prevLogo.jpeg"
+},
+{
+    "empresa":"Palmares",
+    "inicioAct":"01-03-2008",
+    "finAct":"01-03-2013",
+    "activRealizada":"Desempeño en actividades de ventas, area administrativa en unidades de negocio Supermecado y Electrodomesticos. Analisis de credito y tambien lleve a cabo tareas en area de pso-venta",
+    "logo":"/assets/img/prevLogo.jpeg"
 }
+],
 
-    
+"educacion":[{
+    "nombreInst":"Escuela N° 236",
+    "añoIni":1992,
+    "añoFin":1999,
+    "logoInst":""
+},
+{
+    "nombreInst":"Escuela Sup. Comercio N° 3",
+    "añoIni":2000,
+    "añoFin":2004,
+    "logoInst":""
+}
+]    
 }
