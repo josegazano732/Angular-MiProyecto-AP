@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { PorfolioService } from './servicios/porfolio.service';
-
-
-
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +19,7 @@ import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+
 
 
 
@@ -43,10 +43,10 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
-  
-
-    
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     PorfolioService

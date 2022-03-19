@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -8,10 +8,28 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class InicioSesionComponent implements OnInit {
 
-  constructor(private datosPortfolio:PorfolioService) { }
+  form:FormGroup;
+
+  constructor(private formBuilder:FormBuilder) {
+    this.form = this.formBuilder.group({
+      email:['',[Validators.required, Validators.email]],
+      password:['',[Validators.required, Validators.minLength(8)]],
+      devicedId:["17867868768"],
+      deviceType:["DEVICE_TYPE_ANDROID"],
+      notificationToken:["67657575eececc34"]
+    })
+   }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos();
+    
+  }
+
+  get Email (){
+    return this.form.get('email');
+  }
+
+  get Password (){
+    return this.form.get('password');
   }
 
 }

@@ -19,22 +19,11 @@ export class HardSoftSkillComponent implements OnInit {
 
   detalle = SKILL;
 
-  value = 50;
-
-
-
-  progreso = 80;
-  //valor=""
-  //javaScript:number = 10;
-  porcentaje = 30;
-
   x = this.detalle.forEach(e => {
     return e.valor;
   });
 
   acumularDos(valor1:string, valor2:number){
-
-
     this.detalle.forEach(function(x,index): number | undefined{
     //return x.valor + valor1;
     if (x.nombre == valor1) {
@@ -52,22 +41,36 @@ export class HardSoftSkillComponent implements OnInit {
       alert("VALOR EXCEDIDO, volver a intentarlo");  
     }
   });
-  
-  
-  
-
   }
+
   skillListD:any;
   skillListB:any;
 
-  constructor(private skillDato:PorfolioService) { }
+  blanda:any;
+
+  constructor(private skillDato:PorfolioService) {
+  
+   }
 
   ngOnInit(): void {
     this.skillDato.obtenerDatos().subscribe(data =>{
-      console.log(data.skillB);
+      //console.log(data.skillB);
       this.skillListB=data.skillB;
+      
       
     })
   }
+
+  resultado:any=this.skillDato.listado;
+
+
+  
+ 
+
+  
+  
+
+
+  
 
 }
