@@ -23,12 +23,6 @@ import {MatSliderModule} from '@angular/material/slider';
     MatCardModule,
     MatRadioModule,
     MatSliderModule,
-    
-    
-    
-    
-    
-   
 
   ]
 })

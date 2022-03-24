@@ -46,26 +46,22 @@ export class HardSoftSkillComponent implements OnInit {
   skillListD:any;
   skillListB:any;
 
-  blanda:any;
 
   constructor(private skillDato:PorfolioService) {
   
-   }
+  }
 
   ngOnInit(): void {
     this.skillDato.obtenerDatos().subscribe(data =>{
       //console.log(data.skillB);
       this.skillListB=data.skillB;
+      this.skillListD=data.skillD;
       
       
     })
   }
 
-  resultado:any=this.skillDato.listado;
 
-
-  
- 
 
   
   
