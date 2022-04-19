@@ -7,14 +7,14 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url = "";
+  url = "";// queda pendiente termina API loguin y auth
   currentUserSubjet:BehaviorSubject<any>
   constructor(private http:HttpClient) {
     console.log("El Servicio de autenticacion esta corriendo");
     this.currentUserSubjet = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')|| '{}'))
   }
 
-    iniciarSesion (credenciales:any):observable<any>{
+    iniciarSesion (credenciales:any):Observable<any>{
       return this.http.post(this.url, credenciales).pipe(map(data=> {
 
         return data;

@@ -11,7 +11,7 @@ import { EDUCACION } from '../models/educacion/mock-educacion';
 export class EducacionComponent implements OnInit {
 
   nuevo:EducacionI={
-    institucion: 'institucion',
+    institucion: '',
     anioInicio: 0,
     anioFin: 0,
     logoInst: undefined
