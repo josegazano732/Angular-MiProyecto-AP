@@ -16,7 +16,7 @@ export class AutenticacionService {
 
     iniciarSesion (credenciales:any):Observable<any>{
       return this.http.post(this.url, credenciales).pipe(map(data=> {
-
+        sessionStorage.setItem('currentUser',JSON.stringify(data));
         return data;
       }))
     }
