@@ -9,18 +9,12 @@ import { EDUCACION } from '../componentes/models/educacion/mock-educacion';
   providedIn: 'root'
 })
 export class PorfolioService {
-
-private _listado:any= this.Http.get('/assets/data/data.json');
-
-
+url:string="https://apiportfolio-ap.herokuapp.com/api/";
 constructor(private Http:HttpClient) { }
 
-agregarEducacion(educacion:EducacionI){
-  this._listado.push(educacion);
-}
-
 obtenerDatos():Observable<any> {
-  return this.Http.get('/assets/data/data.json');
+  //return this.Http.get('/assets/data/data.json');
+  return this.Http.get<any>(`${this.url}personas`);
   }
 
   
