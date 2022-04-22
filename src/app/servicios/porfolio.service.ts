@@ -18,8 +18,8 @@ obtenerDatos():Observable<any> {
   return this.Http.get<any>(`${this.url}personas`);
   }
 
-  obtenerDatosExp():Observable<ExperienciaI>{
-    return this.Http.get<ExperienciaI>(this.url+"experiencias");
+  obtenerDatosExp():Observable<any>{
+    return this.Http.get<ExperienciaI[]>(this.url+"experiencia");
   }
 
   

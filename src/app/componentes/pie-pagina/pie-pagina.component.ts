@@ -14,7 +14,7 @@ export class PiePaginaComponent implements OnInit {
 
   ngOnInit(): void {
     this.pieDato.obtenerDatos().subscribe(data =>{
-      console.log(data[0]);
+      //console.log(data[0]);
       this.pieList=data[0];
     })
   }
