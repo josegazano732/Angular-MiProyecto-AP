@@ -3,5 +3,5 @@ export interface ExperienciaI {
     inicioAct:Date;
     finAct:Date;
     activRealizada:String;
-    logo:undefined;
+    logo:String;
 }
