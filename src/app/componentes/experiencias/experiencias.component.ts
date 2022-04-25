@@ -10,13 +10,13 @@ import { __values } from 'tslib';
 })
 export class ExperienciasComponent implements OnInit {
 
-  experienciaList: ExperienciaI[] = [];
+  experienciaList: Array<any> = [];
 
   constructor(private datosExperiencia:PorfolioService) { }
 
   ngOnInit(): void {
-    this.datosExperiencia.obtenerDatosExp().subscribe(data => {
-      console.log(data[0]);
+    this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
+      console.log(data);
       this.experienciaList=data;
       
     });

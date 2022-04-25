@@ -73,12 +73,12 @@
                             <div class="d-flex justify-content-between">
                                 <div class="card text-white bg-success mb-3" style="max-width: 50rem;">
                                     <div class="card-header d-flex justify-content-between" id="lugarTrabajo">
-                                        <h4 id="edit-titulo"> {{exp.empresa}} </h4>
+                                        <h4 id="edit-titulo"> {{exp.nombreempresa}} </h4>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">{{exp.inicioAct}} - {{exp}}</h5>
+                                        <h5 class="card-title">{{exp.fechainicio}} - {{exp.fechafin}}</h5>
                                         <p class="">
-                                            {{exp}}
+                                            {{exp.descripcion}}
                                         </p>
 
                                     </div>
@@ -86,7 +86,7 @@
 
                                 <div class="d-flex p-0">
                                     <div class="">
-                                        <img [src]="exp.logo" class="imagen-foto img-fluid border border-3 border-light w-auto h-auto" alt="" />
+                                        <img [src]="exp.url_logo" class="imagen-foto img-fluid border border-3 border-light w-auto h-auto" alt="" />
                                     </div>
                                 </div>
                             </div>
