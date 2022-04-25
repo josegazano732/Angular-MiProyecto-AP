@@ -41,6 +41,12 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Tipo de Empleo</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                        placeholder="Tipo de empleo">
+                                </div>
+
+                                <div class="mb-3">
                                     <span class="input-group-text">Detallar actividades realizadas</span>
                                     <textarea class="form-control" aria-label="With textarea"></textarea>
                                 </div>
@@ -78,6 +84,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{exp.fechainicio}} - {{exp.fechafin}}</h5>
                                         <p class="">
+                                            MODALIDAD: {{exp.tipo_empleo_id}}
+                                            <br>
                                             {{exp.descripcion}}
                                         </p>
 
