@@ -19,6 +19,8 @@ export class InicioSesionComponent implements OnInit {
       devicedId:["17867868768"],
       deviceType:["DEVICE_TYPE_ANDROID"],
       notificationToken:["67657575eececc34"]
+
+      
     })
    }
 

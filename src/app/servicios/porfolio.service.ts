@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, observable } from 'rxjs';
-import { EducacionI } from '../componentes/models/educacion/educacion.interface';
+import { Observable } from 'rxjs';
 import { EDUCACION } from '../componentes/models/educacion/mock-educacion';
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
 
@@ -18,8 +17,8 @@ obtenerDatos():Observable<any> {
   return this.Http.get<any>(`${this.url}personas`);
   }
 
-  obtenerDatosExp():Observable<any>{
-    return this.Http.get<any>(this.url+"experiencia");
+  obtenerDatosExp(){
+    return this.Http.get<ExperienciaI>(this.url+"experiencia");
   }
 
   crearExperiencia(exp:any){
