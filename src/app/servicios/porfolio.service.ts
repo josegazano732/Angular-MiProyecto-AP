@@ -21,11 +21,9 @@ obtenerDatos():Observable<any> {
     return this.Http.get<ExperienciaI>(this.url+"experiencia");
   }
 
-  crearExperiencia(exp:any){
-    const path= `${this.url}experiencia/nueva`;
-    return this.Http.post(path,exp);
-
-
+  crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
+    //const path= this.url+"experiencia/nueva";
+    return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp);
   }
 
   

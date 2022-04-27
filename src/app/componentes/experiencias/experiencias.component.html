@@ -25,38 +25,44 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form" (ngSubmit)="create(form.value)">
+                            <form [formGroup]="form" (ngSubmit)="create()">
                                 <div class="mb-3">
                                     <label for="empresa" class="form-label">Nombre Empresa</label>
-                                    <input type="text" class="form-control"  formControlName="empresa"
+                                    <input type="text" class="form-control"  formControlName="nombreempresa"
                                         placeholder="lugar de trabajo">
                                 </div>
                                 <div class="mb-3">
                                     <label for="inicioAct" class="form-label">Inicio de actividad</label>
-                                    <input type="date" class="form-control" formControlName="inicioAct"
+                                    <input type="date" class="form-control" formControlName="fechainicio"
                                         placeholder="Año">
                                     <label for="finAct" class="form-label">Fin de actividad</label>
-                                    <input type="Date" class="form-control"formControlName="finAct"
+                                    <input type="Date" class="form-control"formControlName="fechafin"
                                         placeholder="Año">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="tipoEmpleo" class="form-label">Tipo de Empleo</label>
-                                    <input type="text" class="form-control" formControlName="tipoEmpleo"
+                                    <input type="text" class="form-control" formControlName="tipo_empleo_id"
                                         placeholder="Tipo de empleo">
                                 </div>
 
                                 <div class="mb-3">                                   
                                     <label for="activRealizada" class="form-label">Detallar actividades realizadas</label>
-                                    <textarea class="form-control" formControlNamee="activRealizada" aria-label="With textarea"></textarea>
+                                    <textarea class="form-control" formControlName="descripcion" aria-label="With textarea"></textarea>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="logo" class="form-label">Agregar logo de
                                         Empresa</label>
-                                    <input type="file" class="form-control" formControlName="logo" aria-label="file example" required>
+                                    <input type="file" class="form-control" formControlName="url_logo" aria-label="file example" required>
                                     <div class="invalid-feedback">Example invalid form file feedback</div>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="persona_id" class="form-label">Empleo Id </label>
+                                    <input type="number" class="form-control" formControlName="persona_id"
+                                        placeholder="Persona ID">
+                                </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
