@@ -4,6 +4,7 @@ import { __values } from 'tslib';
 import { Experiencia } from './experiencia';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ExperienciaI } from '../models/experiencia/experiencia.interface';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,9 +20,7 @@ export class ExperienciasComponent implements OnInit {
 
   form:FormGroup;
 
- 
-
-  constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder) { 
+  constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
     this.form = this.formBuilder.group({
       nombreempresa:[''],
       fechainicio:[''],
@@ -42,12 +41,18 @@ export class ExperienciasComponent implements OnInit {
 
   }
 
+
   create(){
     //console.log(clicked);
     //console.log(this.form.value);
     this.datosExperiencia.crearExperiencia(this.form.value).subscribe((data:ExperienciaI) => {
       console.log(data);
-      
+      //location.reload()
+      this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
+        console.log(data);
+        this.experienciaList=data;
+      });
+
     });
     
     
