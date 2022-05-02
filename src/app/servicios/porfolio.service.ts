@@ -17,6 +17,11 @@ obtenerDatos():Observable<any> {
   return this.Http.get<any>(`${this.url}personas`);
   }
 
+  obtenerExpId(id:any):Observable<ExperienciaI>{
+
+    return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`);
+  }
+
   obtenerDatosExp(){
     return this.Http.get<ExperienciaI>(this.url+"experiencia");
   }
@@ -24,6 +29,10 @@ obtenerDatos():Observable<any> {
   crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
     //const path= this.url+"experiencia/nueva";
     return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp);
+  }
+
+  editarExperiencia(){
+
   }
 
   

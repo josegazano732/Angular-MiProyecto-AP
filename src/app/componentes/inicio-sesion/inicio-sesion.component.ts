@@ -43,7 +43,7 @@ export class InicioSesionComponent implements OnInit {
 
     this.autenticacionService.iniciarSesion(this.form.value).subscribe(data=>{
       console.log('DATA:' + JSON.stringify(data));
-      this.ruta.navigate(['/portfolio']);
+      
       
     })
   }

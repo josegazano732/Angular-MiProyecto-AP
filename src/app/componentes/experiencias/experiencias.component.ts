@@ -35,7 +35,7 @@ export class ExperienciasComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
-      console.log(data);
+     // console.log(data);
       this.experienciaList=data;
     });
 
@@ -46,15 +46,20 @@ export class ExperienciasComponent implements OnInit {
     //console.log(clicked);
     //console.log(this.form.value);
     this.datosExperiencia.crearExperiencia(this.form.value).subscribe((data:ExperienciaI) => {
-      console.log(data);
+      //console.log(data);
       //location.reload()
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
-        console.log(data);
+        //console.log(data);
         this.experienciaList=data;
       });
 
     });
     
+    
+  }
+
+  editar(id:any){
+    console.log(id);
     
   }
 

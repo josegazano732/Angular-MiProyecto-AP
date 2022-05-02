@@ -15,7 +15,7 @@
                 </a>
             </div>
 
-            <!-- Modal FORMULARIO experiencia -->
+            <!-- Modal FORMULARIO de crear experiencia -->
             <div class="modal fade" id="modalExperiencia" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -28,7 +28,7 @@
                             <form [formGroup]="form" (ngSubmit)="create()">
                                 <div class="mb-3">
                                     <label for="empresa" class="form-label">Nombre Empresa</label>
-                                    <input type="text" class="form-control"  formControlName="nombreempresa"
+                                    <input type="text" class="form-control" formControlName="nombreempresa"
                                         placeholder="lugar de trabajo">
                                 </div>
                                 <div class="mb-3">
@@ -36,7 +36,7 @@
                                     <input type="date" class="form-control" formControlName="fechainicio"
                                         placeholder="Año">
                                     <label for="finAct" class="form-label">Fin de actividad</label>
-                                    <input type="Date" class="form-control"formControlName="fechafin"
+                                    <input type="Date" class="form-control" formControlName="fechafin"
                                         placeholder="Año">
                                 </div>
 
@@ -46,15 +46,18 @@
                                         placeholder="Tipo de empleo">
                                 </div>
 
-                                <div class="mb-3">                                   
-                                    <label for="activRealizada" class="form-label">Detallar actividades realizadas</label>
-                                    <textarea class="form-control" formControlName="descripcion" aria-label="With textarea"></textarea>
+                                <div class="mb-3">
+                                    <label for="activRealizada" class="form-label">Detallar actividades
+                                        realizadas</label>
+                                    <textarea class="form-control" formControlName="descripcion"
+                                        aria-label="With textarea"></textarea>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="logo" class="form-label">Agregar logo de
                                         Empresa</label>
-                                    <input type="file" class="form-control" formControlName="url_logo" aria-label="file example" required>
+                                    <input type="file" class="form-control" formControlName="url_logo"
+                                        aria-label="file example" required>
                                     <div class="invalid-feedback">Example invalid form file feedback</div>
                                 </div>
                                 <div class="mb-3">
@@ -64,21 +67,26 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Agregar</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
                                 </div>
 
                             </form>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Fin de Modal -->
+
+
 
         <!-- Experiencia N° 1-->
         <ul class="lista">
-            <li *ngFor="let exp of experienciaList">
+            <li *ngFor="let exp of experienciaList" >
                 <div class="container d-flex justify-content-center">
                     <div class="row">
                         <div class="col-12 m-1">
@@ -100,25 +108,102 @@
 
                                 <div class="d-flex p-0">
                                     <div class="">
-                                        <img [src]="exp.url_logo" class="imagen-foto img-fluid border border-3 border-light w-auto h-auto" alt="" />
+                                        <img [src]="exp.url_logo"
+                                            class="imagen-foto img-fluid border border-3 border-light w-auto h-auto"
+                                            alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Botones Editar y Borrar -->
                     <div class="d-flex m-1">
                         <div class=" m-1">
-                            <a href="">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="editar(exp.id)">
                                 <img src="/assets/iconos/editar.png" alt="">
                             </a>
                         </div>
-                        <div  class=" m-1">
+                        <div class=" m-1">
                             <a href="">
                                 <img src="/assets/iconos/eliminar.png" alt="">
                             </a>
                         </div>
                     </div>
+                    <!-- FINAL Botones Editar y Borrar -->
+                    
                 </div>
+
+                <!-- Modal FORMULARIO de Editar experiencia -->
+                <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar experiencia</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form [formGroup]="form" (ngSubmit)="editar(form.value)">
+                                    <div class="mb-3">
+                                        <label for="empresa" class="form-label">Nombre Empresa</label>
+                                        <input type="text" id="nombreempresa" class="form-control"
+                                            formControlName="nombreempresa" placeholder={{exp.nombreempresa}}>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inicioAct" class="form-label">Inicio de actividad</label>
+                                        <input type={{exp.fechainicio}} class="form-control"
+                                            formControlName="fechainicio" placeholder={{exp.fechainicio}}>
+                                        <label for="finAct" class="form-label">Fin de actividad</label>
+                                        <input type="Date" class="form-control" formControlName="fechafin"
+                                            placeholder="Año">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tipoEmpleo" class="form-label">Tipo de Empleo</label>
+                                        <input type="text" class="form-control" formControlName="tipo_empleo_id"
+                                            placeholder="Tipo de empleo">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="activRealizada" class="form-label">Detallar actividades
+                                            realizadas</label>
+                                        <textarea class="form-control" formControlName="descripcion"
+                                            aria-label="With textarea"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="logo" class="form-label">Agregar logo de
+                                            Empresa</label>
+                                        <input type="file" class="form-control" formControlName="url_logo"
+                                            aria-label="file example" required>
+                                        <div class="invalid-feedback">Example invalid form file feedback</div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary"
+                                            data-bs-dismiss="modal">Editar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                    </div>
+
+                                </form>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Modal Editar experiencia -->
+
+
+
+
             </li>
         </ul>
 
