@@ -147,7 +147,7 @@
                             </div>
                             <div class="modal-body">
 
-                                <form [formGroup]="form" (ngSubmit)="editar(form.value)">
+                                <form [formGroup]="form" (ngSubmit)="editar(exp.value)">
                                     <div class="mb-3">
                                         <label for="empresa" class="form-label">Nombre Empresa</label>
                                         <input type="text" id="nombreempresa" class="form-control"
@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="inicioAct" class="form-label">Inicio de actividad</label>
-                                        <input type={{exp.fechainicio}} class="form-control"
+                                        <input type="date" class="form-control"
                                             formControlName="fechainicio" placeholder={{exp.fechainicio}}>
                                         <label for="finAct" class="form-label">Fin de actividad</label>
                                         <input type="Date" class="form-control" formControlName="fechafin"
@@ -178,7 +178,8 @@
                                     <div class="mb-3">
                                         <label for="logo" class="form-label">Agregar logo de
                                             Empresa</label>
-                                        <input type="file" class="form-control" formControlName="url_logo"
+                                         <!-- Se agrego en input type text mientras tanto / cambiar a file -->   
+                                        <input type="text" class="form-control" formControlName="lurl_logo"
                                             aria-label="file example" required>
                                         <div class="invalid-feedback">Example invalid form file feedback</div>
                                     </div>

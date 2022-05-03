@@ -38,6 +38,7 @@ export class ExperienciasComponent implements OnInit {
      // console.log(data);
       this.experienciaList=data;
     });
+    
 
   }
 
@@ -59,8 +60,22 @@ export class ExperienciasComponent implements OnInit {
   }
 
   editar(id:any){
-    console.log(id);
-    
+    //console.log(id);
+    this.datosExperiencia.obtenerExpId(id).subscribe((data:any)=> {
+      //console.log(data);
+      let xp:any=data;
+      console.log(xp);
+      
+      
+      this.form.controls['nombreempresa'].setValue(xp.nombreempresa);
+      this.form.controls['fechainicio'].setValue(xp.fechainicio);
+      this.form.controls['fechafin'].setValue(xp.fechafin);
+      this.form.controls['tipo_empleo_id'].setValue(xp.tipo_empleo_id);
+      this.form.controls['descripcion'].setValue(xp.descripcion);
+      this.form.controls['lurl_logo'].setValue(xp.url_logo);
+      
+      
+    })
   }
 
 }
