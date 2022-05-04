@@ -121,7 +121,7 @@
                     <!-- Botones Editar y Borrar -->
                     <div class="d-flex m-1">
                         <div class=" m-1">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="editar(exp.id)">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="obtenerExpId(exp.id)">
                                 <img src="/assets/iconos/editar.png" alt="">
                             </a>
                         </div>
@@ -147,16 +147,16 @@
                             </div>
                             <div class="modal-body">
 
-                                <form [formGroup]="form" (ngSubmit)="editar(exp.value)">
+                                <form [formGroup]="form" (ngSubmit)="editarExp(exp.id)">
                                     <div class="mb-3">
                                         <label for="empresa" class="form-label">Nombre Empresa</label>
                                         <input type="text" id="nombreempresa" class="form-control"
-                                            formControlName="nombreempresa" placeholder={{exp.nombreempresa}}>
+                                            formControlName="nombreempresa" placeholder="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="inicioAct" class="form-label">Inicio de actividad</label>
                                         <input type="date" class="form-control"
-                                            formControlName="fechainicio" placeholder={{exp.fechainicio}}>
+                                            formControlName="fechainicio" placeholder="Inicio actividad">
                                         <label for="finAct" class="form-label">Fin de actividad</label>
                                         <input type="Date" class="form-control" formControlName="fechafin"
                                             placeholder="Año">
@@ -179,14 +179,14 @@
                                         <label for="logo" class="form-label">Agregar logo de
                                             Empresa</label>
                                          <!-- Se agrego en input type text mientras tanto / cambiar a file -->   
-                                        <input type="text" class="form-control" formControlName="lurl_logo"
+                                        <input type="text" class="form-control" formControlName="url_logo"
                                             aria-label="file example" required>
                                         <div class="invalid-feedback">Example invalid form file feedback</div>
                                     </div>
 
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary"
-                                            data-bs-dismiss="modal">Editar</button>
+                                            data-bs-dismiss="modal" >Editar</button>
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Cerrar</button>
                                     </div>

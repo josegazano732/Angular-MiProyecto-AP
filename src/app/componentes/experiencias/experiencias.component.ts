@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class ExperienciasComponent implements OnInit {
 
   experienciaList: Array<any> = [];
+  //xpe:any;
 
   expe:Experiencia= new Experiencia();
 
@@ -22,12 +23,13 @@ export class ExperienciasComponent implements OnInit {
 
   constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
     this.form = this.formBuilder.group({
+      id:[''],
       nombreempresa:[''],
       fechainicio:[''],
       fechafin:[''],
       tipo_empleo_id:[''],
       descripcion:[''],     
-      lurl_logo:[''],
+      url_logo:[''],
       persona_id:['']
       
     })
@@ -50,32 +52,46 @@ export class ExperienciasComponent implements OnInit {
       //console.log(data);
       //location.reload()
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
-        //console.log(data);
+        console.log(data);
         this.experienciaList=data;
       });
-
     });
-    
-    
   }
 
-  editar(id:any){
+  obtenerExpId(id:any){
     //console.log(id);
-    this.datosExperiencia.obtenerExpId(id).subscribe((data:any)=> {
+    this.datosExperiencia.obtenerExpId(id).subscribe((data:ExperienciaI)=> {
       //console.log(data);
       let xp:any=data;
-      console.log(xp);
-      
-      
+      //this.xpe=data;
+      //console.log(this.xpe);
+      this.form.controls['id'].setValue(xp.id);
       this.form.controls['nombreempresa'].setValue(xp.nombreempresa);
       this.form.controls['fechainicio'].setValue(xp.fechainicio);
       this.form.controls['fechafin'].setValue(xp.fechafin);
       this.form.controls['tipo_empleo_id'].setValue(xp.tipo_empleo_id);
       this.form.controls['descripcion'].setValue(xp.descripcion);
-      this.form.controls['lurl_logo'].setValue(xp.url_logo);
-      
-      
+      this.form.controls['url_logo'].setValue(xp.lurl_logo);
+      this.form.controls['persona_id'].setValue(xp.persona_id);
     })
   }
 
+  editarExp(id:any){
+    //console.log(this.xpe.id);
+    //console.log(this.form.value);
+    
+    this.datosExperiencia.editarExperiencia(this.form.value.id,this.form.value).subscribe((data:any) => {
+      console.log(data);
+      //this.experienciaList=data;
+
+      this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
+        //console.log(data);
+        this.experienciaList=data;
+      });
+    });
+  }
+
+
 }
+
+

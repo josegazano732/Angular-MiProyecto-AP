@@ -33,8 +33,8 @@ obtenerDatos():Observable<any> {
     return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp);
   }
 
-  editarExperiencia(id:any,cuerpo:ExperienciaI):Observable<ExperienciaI>{
-    return this.Http.put<ExperienciaI>(`${this.url}experiencia/${id}`,cuerpo);
+  editarExperiencia(id:any,cuerpo:any):Observable<ExperienciaI>{
+    return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo);
   }
 
   
