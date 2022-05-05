@@ -48,9 +48,13 @@ export class ExperienciasComponent implements OnInit {
   create(){
     //console.log(clicked);
     //console.log(this.form.value);
+      
+
     this.datosExperiencia.crearExperiencia(this.form.value).subscribe((data:ExperienciaI) => {
       //console.log(data);
       //location.reload()
+      
+
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
         console.log(data);
         this.experienciaList=data;
@@ -84,15 +88,20 @@ export class ExperienciasComponent implements OnInit {
     this.datosExperiencia.editarExperiencia(this.form.value.id,this.form.value).subscribe((data:any) => {
       //console.log(data);
       //this.experienciaList=data;
-
-      
-
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
         //console.log(data);
         this.experienciaList=data;
       });
 
-      location.reload()
+      this.form.controls['id'].setValue("");
+      this.form.controls['nombreempresa'].setValue("");
+      this.form.controls['fechainicio'].setValue("");
+      this.form.controls['fechafin'].setValue("");
+      this.form.controls['tipo_empleo_id'].setValue("");
+      this.form.controls['descripcion'].setValue("");
+      this.form.controls['persona_id'].setValue(1);
+      this.form.controls['url_logo'].setValue("");
+      //location.reload()
     });
   }
 
