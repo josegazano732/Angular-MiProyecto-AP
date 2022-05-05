@@ -37,5 +37,10 @@ obtenerDatos():Observable<any> {
     return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo);
   }
 
+  borrarExpId(id:any){
+    return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`);
+
+  }
+
   
 }

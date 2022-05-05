@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PorfolioService } from '../../servicios/porfolio.service';
 import { __values } from 'tslib';
 import { Experiencia } from './experiencia';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { ExperienciaI } from '../models/experiencia/experiencia.interface';
 import { Router } from '@angular/router';
 
@@ -24,7 +24,7 @@ export class ExperienciasComponent implements OnInit {
   constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
     this.form = this.formBuilder.group({
       id:[''],
-      nombreempresa:[''],
+      nombreempresa:['',[Validators.required]],
       fechainicio:[''],
       fechafin:[''],
       tipo_empleo_id:[''],
@@ -82,14 +82,33 @@ export class ExperienciasComponent implements OnInit {
     console.log(this.form.value);
     
     this.datosExperiencia.editarExperiencia(this.form.value.id,this.form.value).subscribe((data:any) => {
-      console.log(data);
+      //console.log(data);
       //this.experienciaList=data;
+
+      
 
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
         //console.log(data);
         this.experienciaList=data;
       });
+
+      location.reload()
     });
+  }
+
+  eliminarExpId(id:any){
+    console.log(id);
+    this.datosExperiencia.borrarExpId(id).subscribe((data:any)=>{
+      console.log(data);
+
+      this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
+        //console.log(data);
+        this.experienciaList=data;
+      });
+
+      
+    })
+    
   }
 
 
