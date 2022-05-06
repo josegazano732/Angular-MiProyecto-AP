@@ -1,6 +1,7 @@
 export interface EducacionI {
-    institucion:string;
-    anioInicio:number;
-    anioFin:number;
-    logoInst:any;
+    id:number;
+    nombre:string;
+    inicio:Date;
+    finalizado:Date;
+    url_logo:string;
 }

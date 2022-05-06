@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PorfolioService } from '../../servicios/porfolio.service';
-import { EducacionI } from '../models/educacion/educacion.interface';
-import { EDUCACION } from '../models/educacion/mock-educacion';
+
+
 
 @Component({
   selector: 'app-educacion',
@@ -10,25 +12,37 @@ import { EDUCACION } from '../models/educacion/mock-educacion';
 })
 export class EducacionComponent implements OnInit {
 
-  nuevo:EducacionI={
-    institucion: '',
-    anioInicio: 0,
-    anioFin: 0,
-    logoInst: undefined
-  }
+  educacionList: Array<any> = [];
+  //xpe:any;
 
-  eduList: any;
-  
+  formEdu:FormGroup;
 
-  constructor(private datoEducacion:PorfolioService) { }
-  
+  constructor(private educacionServi:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
+  this.formEdu = this.formBuilder.group({
+    id:[''],
+    nombre:[''],
+    inicio:[''],
+    finalizado:[''],    
+    url_logo:[''],
+    persona_id:['']
+    
+  })
+}
+
   ngOnInit(): void {
-    this.datoEducacion.obtenerDatos().subscribe(data =>{
-      //console.log(data.educacion);
-      this.eduList=data.educacion;
-      console.log(this.eduList);
-    })
+    this.educacionServi.obtenerDatosEdu().subscribe((data:any) => {
+      //console.log(data);
+      this.educacionList=data;
+      this.formEdu.controls['persona_id'].setValue(data[0].persona_id);
+      console.log(this.formEdu.value);
+    });
   }
+
+  crearEdu(){
+    console.log(this.formEdu.value);
+    
+  }
+
 
 }
 

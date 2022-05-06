@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EDUCACION } from '../componentes/models/educacion/mock-educacion';
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
+import { EducacionI } from '../componentes/models/educacion/educacion.interface';
 
 
 @Injectable({
@@ -12,13 +12,14 @@ export class PorfolioService {
 url:string="https://apiportfolio-ap.herokuapp.com/api/";
 constructor(private Http:HttpClient) { }
 
+                                //Metodos Personas
 obtenerDatos():Observable<any> {
   //return this.Http.get('/assets/data/data.json');
   return this.Http.get<any>(`${this.url}personas`);
   }
 
 
-//Metodos Experiencias 
+                               //Metodos Experiencias 
   obtenerExpId(id:any):Observable<ExperienciaI>{
 
     return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`);
@@ -40,6 +41,11 @@ obtenerDatos():Observable<any> {
   borrarExpId(id:any){
     return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`);
 
+  }
+
+  //Metodos Educacion
+  obtenerDatosEdu():Observable<any>{
+    return this.Http.get<EducacionI>(`${this.url}educacion`);
   }
 
   

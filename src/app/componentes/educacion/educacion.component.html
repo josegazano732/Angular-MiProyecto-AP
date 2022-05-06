@@ -14,7 +14,7 @@
             </a>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal FORMULARIO de crear Educacion -->
         <div class="modal fade" id="modalEducacion" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -26,34 +26,40 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form [formGroup]="formEdu" (ngSubmit)="crearEdu()">
+
                             <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">
+                                <label for="institucion" class="form-label">
                                     Nombre de Institucion
                                 </label>
-                                <input type="text" name="institucion" [(ngModel)]="nuevo.institucion" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Institucion" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">
-                                    Año: inicio
-                                </label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Año" />
-                                <label for="formGroupExampleInput" class="form-label">
-                                    Año: finalizado
-                                </label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Año" />
+                                <input type="text" name="institucion" class="form-control" placeholder="Institucion"
+                                    formControlName="nombre" />
                             </div>
 
                             <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">
+                                <label for="inicio" class="form-label">
+                                    Año: inicio
+                                </label>
+                                <input type="text" class="form-control" placeholder="Año" formControlName="inicio" />
+
+                                <label for="final" class="form-label">
+                                    Año: finalizado
+                                </label>
+                                <input type="text" class="form-control" placeholder="Año"
+                                    formControlName="finalizado" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="logo" class="form-label">
                                     Agregar logo de Institucion
                                 </label>
-                                <input type="file" class="form-control" aria-label="file example" required />
+                                <input type="file" class="form-control" formControlName="url_logo"
+                                    aria-label="file example" required />
                                 <div class="invalid-feedback">
                                     Example invalid form file feedback
                                 </div>
                             </div>
+
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -65,27 +71,106 @@
                 </div>
             </div>
         </div>
+        <!-- Fin de Modal -->
     </div>
+   
+
+
 
     <div class="container">
         <div class="container m-auto p-3">
-            <!-- A property item -->
+            <!-- Eeducacion N° 1-->
             <ul class="lista">
-                <li *ngFor="let edu of eduList">
+                <li *ngFor="let edu of educacionList">
                     <dl class="container-edu">
-                        <!-- Propiedad nombre -->
+
                         <dt>
                             <div class="d-flex justify-content-between align-items-center">
-                                <img [src]="edu.logoInst" alt="" class="img-fluid rounded-circle m-1"
+                                <img [src]="edu.url_logo" alt="" class="img-fluid rounded-circle m-1"
                                     style="width: 8rem;" />
-                                <h3 class="m-3"> {{edu.nombreInst}} </h3>
+                                <h3 class="m-3"> {{edu.nombre}} </h3>
                             </div>
                         </dt>
 
                         <!-- Propiedad valor -->
-                        <dd>
-                            <h5>{{edu.anioIni}} - {{edu.anioFin}}</h5>
+                        <dd class="m-1">
+                            <h5>{{edu.inicio}} - {{edu.finalizado}}</h5>
                         </dd>
+
+                        <!-- Botones Editar y Borrar -->
+                        <div class="d-flex m-1">
+                            <div class=" m-1">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#modalEducacionEditar">
+                                    <img src="/assets/iconos/editar.png" alt="">
+                                </a>
+                            </div>
+                            <div class=" m-1">
+                                <a type="button">
+                                    <img src="/assets/iconos/eliminar.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- FINAL Botones Editar y Borrar -->
+
+                        <!-- Modal FORMULARIO de Editar Educacion -->
+        <div class="modal fade" id="modalEducacionEditar" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Editar Educacion
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="formEdu" >
+
+                        <div class="mb-3">
+                            <label for="institucion" class="form-label">
+                                Nombre de Institucion
+                            </label>
+                            <input type="text" name="institucion" class="form-control" placeholder="Institucion"
+                                formControlName="nombre" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inicio" class="form-label">
+                                Año: inicio
+                            </label>
+                            <input type="text" class="form-control" placeholder="Año" formControlName="inicio" />
+
+                            <label for="final" class="form-label">
+                                Año: finalizado
+                            </label>
+                            <input type="text" class="form-control" placeholder="Año"
+                                formControlName="finalizado" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="logo" class="form-label">
+                                Agregar logo de Institucion
+                            </label>
+                            <input type="file" class="form-control" formControlName="url_logo"
+                                aria-label="file example" required />
+                            <div class="invalid-feedback">
+                                Example invalid form file feedback
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de Modal -->
+                        
                     </dl>
                 </li>
             </ul>

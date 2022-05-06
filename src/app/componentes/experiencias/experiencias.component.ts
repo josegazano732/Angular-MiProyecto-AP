@@ -37,7 +37,7 @@ export class ExperienciasComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
-     // console.log(data);
+      //console.log(data);
       this.experienciaList=data;
       this.form.controls['persona_id'].setValue(data[0].persona_id);
       //console.log(this.form.value);
