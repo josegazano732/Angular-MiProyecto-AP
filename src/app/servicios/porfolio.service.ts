@@ -44,8 +44,28 @@ obtenerDatos():Observable<any> {
   }
 
   //Metodos Educacion
+
+  obtenerEduId(id:any):Observable<EducacionI>{
+    return this.Http.get<EducacionI>(`${this.url}educacion/${id}`);//falta ver todavia
+  }
+
+
   obtenerDatosEdu():Observable<any>{
     return this.Http.get<EducacionI>(`${this.url}educacion`);
+  }
+
+  crearEducacion(edu:EducacionI):Observable<EducacionI>{
+    //const path= this.url+"experiencia/nueva";
+    return this.Http.post<EducacionI>(this.url+"educacion/nueva",edu);
+  }
+
+  editarEducacion(id:any,cuerpo:any):Observable<EducacionI>{
+    return this.Http.put<EducacionI>(`${this.url}educacion/actualizar/${id}`,cuerpo);
+  }
+
+  borrarEduId(id:any){
+    return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`);
+
   }
 
   

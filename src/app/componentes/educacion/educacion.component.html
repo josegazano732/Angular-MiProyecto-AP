@@ -40,12 +40,12 @@
                                 <label for="inicio" class="form-label">
                                     Año: inicio
                                 </label>
-                                <input type="text" class="form-control" placeholder="Año" formControlName="inicio" />
+                                <input type="date" class="form-control" placeholder="Año" formControlName="inicio" />
 
                                 <label for="final" class="form-label">
                                     Año: finalizado
                                 </label>
-                                <input type="text" class="form-control" placeholder="Año"
+                                <input type="date" class="form-control" placeholder="Año"
                                     formControlName="finalizado" />
                             </div>
 
@@ -60,13 +60,13 @@
                                 </div>
                             </div>
 
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary"
+                                    data-bs-dismiss="modal">Agregar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Cerrar
-                        </button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -100,12 +100,12 @@
                         <!-- Botones Editar y Borrar -->
                         <div class="d-flex m-1">
                             <div class=" m-1">
-                                <a href="" data-bs-toggle="modal" data-bs-target="#modalEducacionEditar">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#modalEducacionEditar" (click)="obtenerEduId(edu.id)">
                                     <img src="/assets/iconos/editar.png" alt="">
                                 </a>
                             </div>
                             <div class=" m-1">
-                                <a type="button">
+                                <a type="button" (click)="eliminarEduId(edu.id)">
                                     <img src="/assets/iconos/eliminar.png" alt="">
                                 </a>
                             </div>
@@ -124,7 +124,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="formEdu" >
+                    <form [formGroup]="formEdu" (ngSubmit)="editarEdu(edu.id)" >
 
                         <div class="mb-3">
                             <label for="institucion" class="form-label">
@@ -138,12 +138,12 @@
                             <label for="inicio" class="form-label">
                                 Año: inicio
                             </label>
-                            <input type="text" class="form-control" placeholder="Año" formControlName="inicio" />
+                            <input type="date" class="form-control" placeholder="Año" formControlName="inicio" />
 
                             <label for="final" class="form-label">
                                 Año: finalizado
                             </label>
-                            <input type="text" class="form-control" placeholder="Año"
+                            <input type="date" class="form-control" placeholder="Año"
                                 formControlName="finalizado" />
                         </div>
 
@@ -158,14 +158,17 @@
                             </div>
                         </div>
 
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                            
+                        </div>
+
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cerrar
-                    </button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+                
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@ export class ExperienciasComponent implements OnInit {
       //console.log(data);
       //location.reload()
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
-        console.log(data);
+        //console.log(data);
         this.experienciaList=data;
       });
     });
@@ -64,7 +64,7 @@ export class ExperienciasComponent implements OnInit {
      // console.log(data);
       let xp:any=data;
       //this.xpe=data;
-      console.log(xp);
+     // console.log(xp);
       this.form.controls['id'].setValue(xp.id);
       this.form.controls['nombreempresa'].setValue(xp.nombreempresa);
       this.form.controls['fechainicio'].setValue(xp.fechainicio);
