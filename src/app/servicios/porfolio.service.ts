@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
 import { EducacionI } from '../componentes/models/educacion/educacion.interface';
+import { SkillI } from '../componentes/models/Skill/skill.interface';
 
 
 @Injectable({
@@ -21,7 +22,6 @@ obtenerDatos():Observable<any> {
 
                                //Metodos Experiencias 
   obtenerExpId(id:any):Observable<ExperienciaI>{
-
     return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`);
   }
 
@@ -30,7 +30,7 @@ obtenerDatos():Observable<any> {
   }
 
   crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
-    //const path= this.url+"experiencia/nueva";
+    //const path= this.url+"experiencia/nueva"; otra forma de hacerlo
     return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp);
   }
 
@@ -65,8 +65,20 @@ obtenerDatos():Observable<any> {
 
   borrarEduId(id:any){
     return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`);
+  } 
+  //Final de Metodos Educacion
 
+
+  //Metodos para los Skill
+  //-----------------------------Soft-Skill--------------------------------------------
+  obtenerSkillHard(){
+    return this.Http.get<SkillI>(this.url+"hardskill");
   }
 
+  //----------------------------Soft-Skill---------------------------------------------
+
+  obtenerSkillSoft(){
+    return this.Http.get<SkillI>(this.url+"softskill");
+  }
   
 }

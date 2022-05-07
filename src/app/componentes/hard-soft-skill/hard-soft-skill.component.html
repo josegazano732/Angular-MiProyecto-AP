@@ -7,75 +7,69 @@
 </div>
 
 
-    
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalSkill" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Habilidad</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Destacar habilidad</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Habilidad">
-                        </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label"> Imgresar un valor de 1 a 100 </label>
-                            <input type="number" class="form-control" id="formGroupExampleInput"
-                                placeholder="Valor ">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Habilidad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Destacar habilidad</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Habilidad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label"> Imgresar un valor de 1 a 100 </label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Valor ">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
+</div>
 <!--  Fin de Modal -->
 
+<!-- ----------------------------Hard-Skill-------------------------------------- -->
 <div class="container d-flex justify-content-around p-2">
-    <div class="  ">
+    <div class="" style="min-width: 25rem;">
         <div class="about-skills m-1">
-            
+
             <h2 class=" text-center ">Hard-Skill</h2>
             <div class="container d-flex justify-content-end">
                 <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
-                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
+                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
-        </div>
-        
-            
+            </div>
+
+
             <!-- skill item -->
-            <ul *ngFor="let sk of skillListD">
+            <ul *ngFor="let sk of hardList">
                 <li class="lista">
                     <div class="skill-item">
                         <div class="skill-header">
-                            <h6 class="skill-title">{{sk.nombre}}</h6>
+                            <h6 class="skill-title">{{sk.nombre_habilidad}}</h6>
                             <div class="skill-percentage">
                                 <div class="count-box counted">
-                                    <span class="counter">{{ sk.valor }}</span>
+                                    <span class="counter">{{ sk.valor_hab}}</span>
                                 </div>
                                 %
                             </div>
                         </div>
                         <div class="skill-bar">
                             <div class="bar-inner">
-                                <div class="bar progress-line" data-width="90" [ngStyle]="{'width.%':sk.valor}">
+                                <div class="bar progress-line" data-width="90" [ngStyle]="{'width.%':sk.valor_hab}">
                                 </div>
                                 <!--style="width: {{porcentaje}}%;"-->
                             </div>
-                        </div>
-                        <div class="m-auto">
-                            <button class="m-1" (click)="acumularDos(sk.nombre,+5)">+</button>
-                            <button class="m-1" (click)="acumularDos(sk.nombre,-5)">-</button>
                         </div>
                     </div>
                 </li>
@@ -84,32 +78,34 @@
         </div>
         <!-- about skills -->
     </div>
-    
+
+
+
+    <!-- ----------------------------Soft-Skill-------------------------------------- -->
     <div class="">
-        <div class="about-skills m-1 ">
-            
+        <div class="about-skills m-1 " style="min-width: 15rem;">
+
             <h2 class=" text-center">Soft-Skill</h2>
             <div class="container d-flex justify-content-end">
                 <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSkill">
-                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" >
+                    <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
-        </div>
-        <ul class="lista">
-            <li *ngFor="let sb of skillListB">
-                <div class=" m-auto">
-                    <div class="m-0 p-1" style="max-width: 50%; max-height: 50%;">
-                        <h6 class=" text-center">{{sb.habilidad}}</h6>
-                        <mat-progress-spinner [value]="sb.valor" mode="determinate" strokeWidth="13" class=" m-auto p-0">
-                            <h5></h5>
-                        </mat-progress-spinner>
+            </div>
+            <ul class="lista">
+                <li *ngFor="let sb of softList">
+                    <div class=" m-auto">
+                        <div class="m-0 p-1" style="width: 100%;">
+                            <h6 class=" text-center">{{sb.nombre_habilidad}} <span>%{{sb.valor_hab}}</span> </h6>
+                            <div class="d-flex">
+                                <div class="m-auto">
+                                    <mat-progress-spinner [value]="sb.valor_hab" mode="determinate" strokeWidth="13"
+                                    class=" m-auto p-0"></mat-progress-spinner>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-            </li>
-        </ul>
+
+                </li>
+            </ul>
+        </div>
     </div>
-    
-
-</div>
-
-
