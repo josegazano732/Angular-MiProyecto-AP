@@ -5,6 +5,7 @@ import { PorfolioService } from '../../servicios/porfolio.service';
 import { __values } from 'tslib';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SkillI } from '../models/Skill/skill.interface';
 
 
 
@@ -33,20 +34,26 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   ngOnInit(): void {
     this.skillServicio.obtenerSkillHard().subscribe((data:any)=>{
       this.hardList=data;
+    });
+    this.skillServicio.obtenerSkillHard().subscribe((data:any)=>{
+      this.formSkill.controls['persona_id'].setValue(data[0].idhard_skill);
+
     })
 
     this.skillServicio.obtenerSkillSoft().subscribe((data:any)=>{
       this.softList=data;
-    })
+    });
 
   }
 
-
-
-  
-  
-
-
-  
+  crearHard(){
+    console.log(this.formSkill.value);
+    this.skillServicio.crearHardSkill(this.formSkill.value).subscribe((data:SkillI)=>{
+      this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
+        console.log(data);
+        this.hardList=data;
+      });
+    });
+  }
 
 }

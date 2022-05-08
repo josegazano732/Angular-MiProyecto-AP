@@ -30,7 +30,6 @@ obtenerDatos():Observable<any> {
   }
 
   crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
-    //const path= this.url+"experiencia/nueva"; otra forma de hacerlo
     return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp);
   }
 
@@ -70,9 +69,13 @@ obtenerDatos():Observable<any> {
 
 
   //Metodos para los Skill
-  //-----------------------------Soft-Skill--------------------------------------------
+  //-----------------------------Hard-Skill--------------------------------------------
   obtenerSkillHard(){
     return this.Http.get<SkillI>(this.url+"hardskill");
+  }
+
+  crearHardSkill(hard:SkillI):Observable<SkillI>{
+    return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard);
   }
 
   //----------------------------Soft-Skill---------------------------------------------

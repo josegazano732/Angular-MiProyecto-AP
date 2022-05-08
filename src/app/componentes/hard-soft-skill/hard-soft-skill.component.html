@@ -18,20 +18,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form [formGroup]="formSkill" (ngSubmit)="crearHard()">
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Destacar habilidad</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Habilidad">
+                        <label for="Habilidad" class="form-label">Destacar habilidad</label>
+                        <input type="text" class="form-control"  placeholder="Habilidad" formControlName="nombre_habilidad">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label"> Imgresar un valor de 1 a 100 </label>
-                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Valor ">
+                        <input type="number" class="form-control"  placeholder="Valor " formControlName="valor_hab" >
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Crear</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
@@ -71,7 +72,58 @@
                                 <!--style="width: {{porcentaje}}%;"-->
                             </div>
                         </div>
+                        <!-- Botones Editar y Borrar -->
+                        <div class="d-flex m-1">
+                            <div class=" m-1">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#skillModificar">
+                                    <img src="/assets/iconos/editar.png" alt="">
+                                </a>
+                            </div>
+                            <div class=" m-1">
+                                <a type="button">
+                                    <img src="/assets/iconos/eliminar.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- FINAL Botones Editar y Borrar -->
                     </div>
+
+                    <!-- Modal EDITAR SKILL -->
+                    <div class="modal fade" id="skillModificar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Habilidad</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">Destacar
+                                                habilidad</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                                placeholder="Habilidad">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label"> Imgresar un valor de
+                                                1 a 100 </label>
+                                            <input type="number" class="form-control" id="formGroupExampleInput"
+                                                placeholder="Valor ">
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Guardar</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  Fin de Modal editar -->
                 </li>
             </ul>
             <!-- skill item -->
@@ -99,7 +151,7 @@
                             <div class="d-flex">
                                 <div class="m-auto">
                                     <mat-progress-spinner [value]="sb.valor_hab" mode="determinate" strokeWidth="13"
-                                    class=" m-auto p-0"></mat-progress-spinner>
+                                        class=" m-auto p-0"></mat-progress-spinner>
                                 </div>
                             </div>
                         </div>
