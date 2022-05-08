@@ -35,10 +35,10 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
     this.skillServicio.obtenerSkillHard().subscribe((data:any)=>{
       this.hardList=data;
     });
-    this.skillServicio.obtenerSkillHard().subscribe((data:any)=>{
-      this.formSkill.controls['persona_id'].setValue(data[0].idhard_skill);
-
-    })
+    this.skillServicio.obtenerDatos().subscribe((data:any)=>{
+      this.formSkill.controls['persona_id'].setValue(data[0].id);
+    });
+    //----------------------------------------------------------------------------------------
 
     this.skillServicio.obtenerSkillSoft().subscribe((data:any)=>{
       this.softList=data;
@@ -55,5 +55,50 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
       });
     });
   }
+
+  hardId(id:any){
+    console.log(id);
+    this.skillServicio.obtenerHardId(id).subscribe((data:SkillI)=> {
+     //console.log(data);
+      let xp:any=data;
+      //this.xpe=data;
+      //console.log(xp);
+      this.formSkill.controls['idhard_skill'].setValue(xp.idhard_skill);
+      this.formSkill.controls['nombre_habilidad'].setValue(xp.nombre_habilidad);
+      this.formSkill.controls['valor_hab'].setValue(xp.valor_hab);
+      //this.formSkill.controls['persona_id'].setValue(xp);
+    })
+  }
+
+  editarHard(id:any){
+    //console.log(this.xpe.id);
+    //console.log(this.formSkill.value);
+    
+    this.skillServicio.editarHardSkill(this.formSkill.value.id,this.formSkill.value).subscribe((data:any) => {
+      //console.log(data);
+      //this.experienciaList=data;
+      this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
+        //console.log(data);
+        this.hardList=data;
+      });
+      
+      this.formSkill.controls['idhard_skill'].setValue("");
+      this.formSkill.controls['nombre_habilidad'].setValue("");
+      this.formSkill.controls['valor_hab'].setValue("");
+      //this.formSkill.controls['persona_id'].setValue(data.persona_id);
+    });
+  }
+
+  eliminarHardId(id:any){
+    console.log(id);
+    this.skillServicio.borrarHardId(id).subscribe((data:any)=>{
+      console.log(data);
+
+      this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
+        //console.log(data);
+        this.hardList=data;
+      });
+    })
+}
 
 }

@@ -70,6 +70,11 @@ obtenerDatos():Observable<any> {
 
   //Metodos para los Skill
   //-----------------------------Hard-Skill--------------------------------------------
+  obtenerHardId(id:any):Observable<SkillI>{
+    return this.Http.get<SkillI>(`${this.url}hardskill/${id}`);//falta ver todavia
+  }
+
+
   obtenerSkillHard(){
     return this.Http.get<SkillI>(this.url+"hardskill");
   }
@@ -77,6 +82,14 @@ obtenerDatos():Observable<any> {
   crearHardSkill(hard:SkillI):Observable<SkillI>{
     return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard);
   }
+
+  editarHardSkill(id:any,cuerpo:any):Observable<SkillI>{
+    return this.Http.put<SkillI>(`${this.url}hardskill/actualizar/${id}`,cuerpo);
+  }
+
+  borrarHardId(id:any){
+    return this.Http.delete<any>(`${this.url}hardskill/borrar/${id}`);
+  } 
 
   //----------------------------Soft-Skill---------------------------------------------
 
