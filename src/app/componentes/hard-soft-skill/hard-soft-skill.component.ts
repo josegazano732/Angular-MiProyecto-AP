@@ -65,10 +65,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   hardId(id:any){
     console.log(id);
     this.skillServicio.obtenerHardId(id).subscribe((data:SkillI)=> {
-     //console.log(data);
       let xp:any=data;
-      //this.xpe=data;
-      //console.log(xp);
       this.formSkill.controls['idhard_skill'].setValue(xp.idhard_skill);
       this.formSkill.controls['nombre_habilidad'].setValue(xp.nombre_habilidad);
       this.formSkill.controls['valor_hab'].setValue(xp.valor_hab);
@@ -77,14 +74,8 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   }
 
   editarHard(id:any){
-    //console.log(this.xpe.id);
-    //console.log(this.formSkill.value);
-    
     this.skillServicio.editarHardSkill(this.formSkill.value.id,this.formSkill.value).subscribe((data:any) => {
-      //console.log(data);
-      //this.experienciaList=data;
       this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
-        //console.log(data);
         this.hardList=data;
       });
       //this.formSkill.controls['persona_id'].setValue(data.persona_id);
@@ -97,10 +88,31 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
       console.log(data);
 
       this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
-        //console.log(data);
         this.hardList=data;
       });
     })
+}
+
+//-----------------------------------Metodos para Soft-Skill------------------------
+crearSoft(){
+  //console.log(this.formSkill.value);
+  this.skillServicio.crearSoftSkill(this.formSkill.value).subscribe((data:SkillI)=>{
+    this.skillServicio.obtenerSkillSoft().subscribe((data:any) => {
+      console.log(data);
+      this.softList=data;
+    });
+  });
+}
+
+softdId(id:any){
+  console.log(id);
+  this.skillServicio.obtenerSoftId(id).subscribe((data:SkillI)=> {
+    let xp:any=data;
+    this.formSkill.controls['idhard_skill'].setValue(xp.idhard_skill);
+    this.formSkill.controls['nombre_habilidad'].setValue(xp.nombre_habilidad);
+    this.formSkill.controls['valor_hab'].setValue(xp.valor_hab);
+    //this.formSkill.controls['persona_id'].setValue(xp);
+  })
 }
 
 

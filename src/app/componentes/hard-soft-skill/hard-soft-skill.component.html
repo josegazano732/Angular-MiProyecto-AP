@@ -150,7 +150,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="formSkill"  >
+                    <form [formGroup]="formSkill" (ngSubmit)="crearSoft()" >
                         <div class="mb-3">
                             <label for="Habilidad" class="form-label">Destacar habilidad</label>
                             <input type="text" class="form-control" placeholder="Habilidad"
@@ -194,7 +194,7 @@
                                 </div><!-- Botones Editar y Borrar -->
                                 <div class="d-flex m-1">
                                     <div class=" m-1">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#skillSoft">
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#skillSoft" (click)="softdId(sb.idsoft_skill)">
                                             <img src="/assets/iconos/editar.png" alt="">
                                         </a>
                                     </div>
