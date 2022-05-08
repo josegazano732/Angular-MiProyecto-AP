@@ -46,6 +46,12 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
 
   }
 
+  limpiarForm(){
+    this.formSkill.controls['idhard_skill'].setValue("");
+    this.formSkill.controls['nombre_habilidad'].setValue("");
+    this.formSkill.controls['valor_hab'].setValue("");
+  }
+
   crearHard(){
     console.log(this.formSkill.value);
     this.skillServicio.crearHardSkill(this.formSkill.value).subscribe((data:SkillI)=>{
@@ -81,10 +87,6 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
         //console.log(data);
         this.hardList=data;
       });
-      
-      this.formSkill.controls['idhard_skill'].setValue("");
-      this.formSkill.controls['nombre_habilidad'].setValue("");
-      this.formSkill.controls['valor_hab'].setValue("");
       //this.formSkill.controls['persona_id'].setValue(data.persona_id);
     });
   }
@@ -100,5 +102,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
       });
     })
 }
+
+
 
 }

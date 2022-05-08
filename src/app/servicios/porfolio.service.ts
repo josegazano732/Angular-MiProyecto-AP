@@ -92,9 +92,24 @@ obtenerDatos():Observable<any> {
   } 
 
   //----------------------------Soft-Skill---------------------------------------------
+  obtenerSoftId(id:any):Observable<SkillI>{
+    return this.Http.get<SkillI>(`${this.url}softskill/${id}`);//falta ver todavia
+  }
 
   obtenerSkillSoft(){
     return this.Http.get<SkillI>(this.url+"softskill");
   }
+
+  crearSoftSkill(soft:SkillI):Observable<SkillI>{
+    return this.Http.post<SkillI>(this.url+"softskill/nueva",soft);
+  }
+
+  editarSoftSkill(id:any,cuerpo:any):Observable<SkillI>{
+    return this.Http.put<SkillI>(`${this.url}softskill/actualizar/${id}`,cuerpo);
+  }
+
+  borrarSoftId(id:any){
+    return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`);
+  } 
   
 }
