@@ -19,6 +19,7 @@ import { HardSoftSkillComponent } from './componentes/hard-soft-skill/hard-soft-
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 
 
 
@@ -36,6 +37,7 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
     PiePaginaComponent,
     InicioSesionComponent,
     PortfolioComponent,
+    ProyectosComponent,
     
     
   ],

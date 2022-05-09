@@ -43,9 +43,8 @@ export class EducacionComponent implements OnInit {
   }
 
   crearEdu(){
-    console.log(this.formEdu.value);
+    //console.log(this.formEdu.value);
     this.educacionServi.crearEducacion(this.formEdu.value).subscribe((data:EducacionI)=>{
-      
       this.educacionServi.obtenerDatosEdu().subscribe((data:any) => {
         //console.log(data);
         this.educacionList=data;

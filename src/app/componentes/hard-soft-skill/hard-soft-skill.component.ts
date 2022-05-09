@@ -24,6 +24,7 @@ export class HardSoftSkillComponent implements OnInit {
 
 constructor(private skillServicio:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) {
   this.formSkill = this.formBuilder.group({
+    idsoft_skill:[''],
     idhard_skill:[''],
     nombre_habilidad:[''],
     valor_hab:[''],
@@ -47,6 +48,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   }
 
   limpiarForm(){
+    this.formSkill.controls['idsoft_skill'].setValue("");
     this.formSkill.controls['idhard_skill'].setValue("");
     this.formSkill.controls['nombre_habilidad'].setValue("");
     this.formSkill.controls['valor_hab'].setValue("");
@@ -108,13 +110,35 @@ softdId(id:any){
   console.log(id);
   this.skillServicio.obtenerSoftId(id).subscribe((data:SkillI)=> {
     let xp:any=data;
-    this.formSkill.controls['idhard_skill'].setValue(xp.idhard_skill);
+    this.formSkill.controls['idsoft_skill'].setValue(xp.idsoft_skill);
     this.formSkill.controls['nombre_habilidad'].setValue(xp.nombre_habilidad);
     this.formSkill.controls['valor_hab'].setValue(xp.valor_hab);
     //this.formSkill.controls['persona_id'].setValue(xp);
+    console.log(this.formSkill.value);
+    
   })
 }
 
+editarSoft(id:any){
+  console.log(id);
+  this.skillServicio.editarSoftSkill(this.formSkill.value.idsoft_skill,this.formSkill.value).subscribe((data:any) => {
+    this.skillServicio.obtenerSkillSoft().subscribe((data:any) => {
+      console.log(data);
+      this.softList=data;
+    });
+    //this.formSkill.controls['persona_id'].setValue(data.persona_id);
+  });
+}
+
+eliminarSoftdId(id:any){
+  //console.log(this.softList);
+  this.skillServicio.borrarSoftId(id).subscribe((data:any)=>{
+   //console.log(data);
+    this.skillServicio.obtenerSkillSoft().subscribe((data:any) => {
+      this.softList=data;
+    });
+  })
 
 
+ }
 }
