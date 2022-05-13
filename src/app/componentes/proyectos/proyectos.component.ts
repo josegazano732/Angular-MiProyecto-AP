@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,7 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectosComponent implements OnInit {
 
-  constructor() { }
+  proyectoList: Array<any> = [];
+
+  formProyecto:FormGroup;
+
+  constructor(private datosProyecto:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) {
+    this.formProyecto = this.formBuilder.group({
+      id:[''],
+      titulo:['',[Validators.required]],
+      fecha:[''],
+      nombre:[''],
+      descripcion:[''],
+      repo:[''],     
+      foto:[''],
+      //persona_id:['']
+      
+    })
+   }
+ 
+  
 
   ngOnInit(): void {
   }

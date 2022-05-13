@@ -10,6 +10,76 @@
     <hr class="container" style="margin-left: auto; margin-right: auto;" />
   </div>
 
+  <div class="">
+    <div class="container d-flex justify-content-end">
+        <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto">
+            <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
+        </a>
+    </div>
+
+    <!-- Modal FORMULARIO de crear experiencia -->
+    <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregue su nuevo Proyecto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Titulo</label>
+                            <input type="text" class="form-control" formControlName="titulo"
+                                placeholder="Titulo del proyecto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha de su proyecto</label>
+                            <input type="date" class="form-control" formControlName="fecha"
+                                placeholder="fecha">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" formControlName="nombre"
+                                placeholder="ingresar su nombre">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Detalle su proyecto </label>
+                            <textarea class="form-control" formControlName="descripcion"
+                                aria-label="With textarea"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="repo" class="form-label">Ingresar URL repositorio </label>
+                          <input type="text" class="form-control" formControlName="repo"
+                                placeholder="ingresar su URL">
+                      </div>
+
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Agregar foto de su proyecto</label>
+                            <input type="text" class="form-control" formControlName="foto"
+                                aria-label="file example" placeholder="ingresar url" required>
+                            <div class="invalid-feedback">Example invalid form file feedback</div>
+                        </div>
+                        
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary"
+                                data-bs-dismiss="modal">Agregar</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin de Modal -->
+
+
+<!------------------------------------FOR---------------------------------------------------------------------->
   <div class="seccion-inferior contenedor seccion container">
     <section class="blog">
       <article class="entrada-blog">
