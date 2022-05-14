@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
 import { EducacionI } from '../componentes/models/educacion/educacion.interface';
 import { SkillI } from '../componentes/models/Skill/skill.interface';
+import { ProyectoI } from '../componentes/models/proyecto/proyecto.interface';
 
 
 @Injectable({
@@ -111,5 +112,16 @@ obtenerDatos():Observable<any> {
   borrarSoftId(id:any){
     return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`);
   } 
+
+
+  //----------------------------Proyectos--------------------------------------------
+  obtenerProyectoId(id:any):Observable<ProyectoI>{
+    return this.Http.get<ProyectoI>(`${this.url}proyecto/${id}`);//falta ver todavia
+  }
+
+  obtenerProyecto(){
+    return this.Http.get<ProyectoI>(this.url+"proyecto");
+  }
+  
   
 }

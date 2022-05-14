@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { ProyectoI } from '../models/proyecto/proyecto.interface';
 
 @Component({
   selector: 'app-proyectos',
@@ -26,11 +27,14 @@ export class ProyectosComponent implements OnInit {
       //persona_id:['']
       
     })
-   }
- 
-  
+}
 
   ngOnInit(): void {
+    this.datosProyecto.obtenerProyecto().subscribe((data:any)=>{
+      this.proyectoList=data;
+      console.log(this.proyectoList);
+      
+    })
   }
 
 }

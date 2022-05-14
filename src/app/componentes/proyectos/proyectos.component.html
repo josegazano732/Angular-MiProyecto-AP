@@ -1,9 +1,6 @@
 <div class="container-fluid p-5">
   <div class="m-5">
-    <hr
-      class="container"
-      style="margin-left: auto; margin-right: auto; margin-top: 2rem;"
-    />
+    <hr class="container" style="margin-left: auto; margin-right: auto; margin-top: 2rem;" />
     <div class="container d-flex justify-content-center align-content-center">
       <h1 class="display-4 texto-1 text-center">Proyectos</h1>
     </div>
@@ -12,114 +9,106 @@
 
   <div class="">
     <div class="container d-flex justify-content-end">
-        <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto">
-            <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
-        </a>
+      <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto">
+        <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
+      </a>
     </div>
 
     <!-- Modal FORMULARIO de crear experiencia -->
-    <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregue su nuevo Proyecto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form >
-                        <div class="mb-3">
-                            <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" formControlName="titulo"
-                                placeholder="Titulo del proyecto">
-                        </div>
-                        <div class="mb-3">
-                            <label for="fecha" class="form-label">Fecha de su proyecto</label>
-                            <input type="date" class="form-control" formControlName="fecha"
-                                placeholder="fecha">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" formControlName="nombre"
-                                placeholder="ingresar su nombre">
-                        </div>
+    <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregue su nuevo Proyecto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo del proyecto">
+              </div>
+              <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha de su proyecto</label>
+                <input type="date" class="form-control" formControlName="fecha" placeholder="fecha">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="ingresar su nombre">
+              </div>
 
-                        <div class="mb-3">
-                            <label for="descripcion" class="form-label">Detalle su proyecto </label>
-                            <textarea class="form-control" formControlName="descripcion"
-                                aria-label="With textarea"></textarea>
-                        </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Detalle su proyecto </label>
+                <textarea class="form-control" formControlName="descripcion" aria-label="With textarea"></textarea>
+              </div>
 
-                        <div class="mb-3">
-                          <label for="repo" class="form-label">Ingresar URL repositorio </label>
-                          <input type="text" class="form-control" formControlName="repo"
-                                placeholder="ingresar su URL">
-                      </div>
+              <div class="mb-3">
+                <label for="repo" class="form-label">Ingresar URL repositorio </label>
+                <input type="text" class="form-control" formControlName="repo" placeholder="ingresar su URL">
+              </div>
 
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Agregar foto de su proyecto</label>
-                            <input type="text" class="form-control" formControlName="foto"
-                                aria-label="file example" placeholder="ingresar url" required>
-                            <div class="invalid-feedback">Example invalid form file feedback</div>
-                        </div>
-                        
+              <div class="mb-3">
+                <label for="foto" class="form-label">Agregar foto de su proyecto</label>
+                <input type="text" class="form-control" formControlName="foto" aria-label="file example"
+                  placeholder="ingresar url" required>
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+              </div>
 
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"
-                                data-bs-dismiss="modal">Agregar</button>
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Cerrar</button>
-                        </div>
 
-                    </form>
-                </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
 
-            </div>
+            </form>
+          </div>
+
         </div>
+      </div>
     </div>
-</div>
-<!-- Fin de Modal -->
-
-
-<!------------------------------------FOR---------------------------------------------------------------------->
-  <div class="seccion-inferior contenedor seccion container">
-    <section class="blog">
-      <article class="entrada-blog">
-        <div class="imagen ">
-          <img
-            src="/assets/img/bienesraices.jpg"
-            style="max-width: 100%;"
-            alt="Entrada de blog"
-          />
-        </div>
-        <div class="texto-entrada ">
-          <a href="https://github.com/josegazano732/BienesReices-Front">
-            <h4>Bienes Raices</h4>
-          </a>
-          <p>
-            Escrito el:
-            <span>24/04/2021</span>
-            por:
-            <span>Jose L. Gazano</span>
-          </p>
-          <p>
-            Practicas Front utilizando Html y Css en proceso de aprendizaje realizado desde curso desde UDEMY.
-          </p>
-        </div>
-      </article>
-
-      <!-- Botones Editar y Borrar -->
-      <div class="d-flex m-1 justify-content-end">
-        <div class=" m-1">
-            <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar">
-                <img src="/assets/iconos/editar.png" alt="">
-            </a>
-        </div>
-        <div class=" m-1">
-            <a type="button" >
-                <img src="/assets/iconos/eliminar.png" alt="">
-            </a>
-        </div>
-    </div>
-    <!-- FINAL Botones Editar y Borrar -->
-    </section>
   </div>
+  <!-- Fin de Modal -->
+
+
+  <!------------------------------------FOR---------------------------------------------------------------------->
+  <ul>
+    <li *ngFor="let proyecto of proyectoList">
+      <div class="seccion-inferior contenedor seccion container">
+        <section class="blog">
+          <article class="entrada-blog">
+            <div class="imagen ">
+              <img [src]="proyecto.foto" style="max-width: 100%;" alt="Entrada de imagen" />
+            </div>
+            <div class="texto-entrada ">
+              <a [href]= "proyecto.url">
+                <h4>{{proyecto.titulo}}</h4>
+              </a>
+              <p>
+                Escrito el:
+                <span>{{proyecto.fecha}}</span>
+                por:
+                <span>{{proyecto.nombre}}</span>
+              </p>
+              <p>
+                {{proyecto.descripcion}}
+              </p>
+            </div>
+          </article>
+
+          <!-- Botones Editar y Borrar -->
+          <div class="d-flex m-1 justify-content-end">
+            <div class=" m-1">
+              <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar">
+                <img src="/assets/iconos/editar.png" alt="">
+              </a>
+            </div>
+            <div class=" m-1">
+              <a type="button">
+                <img src="/assets/iconos/eliminar.png" alt="">
+              </a>
+            </div>
+          </div>
+          <!-- FINAL Botones Editar y Borrar -->
+        </section>
+      </div>
+    </li>
+  </ul>
 </div>
