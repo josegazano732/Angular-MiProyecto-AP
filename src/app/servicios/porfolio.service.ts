@@ -16,7 +16,7 @@ url:string="https://apiportfolio-ap.herokuapp.com/api/";
 constructor(private Http:HttpClient) { }
 
 //---------------------------------Persona----------------------------------------
-obtenerPersona(id:any):Observable<PersonaI>{
+obtenerPersonaId(id:any):Observable<PersonaI>{
   return this.Http.get<PersonaI>(`${this.url}personas/${id}`);//falta ver todavia
 }
 
