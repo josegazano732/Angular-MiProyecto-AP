@@ -1,12 +1,12 @@
 export interface PersonaI {
-    nombre:String;
-    apellido:String;
-    edad:number;
+    id:number;
+    nombre:string;
+    apellido:string;
     pais:string;
-    ubicacion:string;
+    domicilio:string;
     fechaNac:Date;
-    telefono:number;
+    contacto:number;
     correo:string;
-    sobremi:String;
-    fotoPerfil:undefined;
+    sobre_mi:string;
+    url_foto:string;
 }

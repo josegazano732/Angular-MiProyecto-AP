@@ -9,12 +9,12 @@
 
   <div class="">
     <div class="container d-flex justify-content-end">
-      <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto">
+      <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto" (click)="limpiarFormP()">
         <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
       </a>
     </div>
 
-    <!-- Modal FORMULARIO de crear experiencia -->
+    <!-- Modal FORMULARIO de crear Proyecto -->
     <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -23,7 +23,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form [formGroup]="formProyecto" (ngSubmit)="crearProyecto()">
               <div class="mb-3">
                 <label for="titulo" class="form-label">Titulo</label>
                 <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo del proyecto">
@@ -70,7 +70,7 @@
 
   <!------------------------------------FOR---------------------------------------------------------------------->
   <ul>
-    <li *ngFor="let proyecto of proyectoList">
+    <li class="lista" *ngFor="let proyecto of proyectoList">
       <div class="seccion-inferior contenedor seccion container">
         <section class="blog">
           <article class="entrada-blog">
@@ -78,7 +78,7 @@
               <img [src]="proyecto.foto" style="max-width: 100%;" alt="Entrada de imagen" />
             </div>
             <div class="texto-entrada ">
-              <a [href]= "proyecto.url">
+              <a [href]="proyecto.repo">
                 <h4>{{proyecto.titulo}}</h4>
               </a>
               <p>
@@ -96,18 +96,72 @@
           <!-- Botones Editar y Borrar -->
           <div class="d-flex m-1 justify-content-end">
             <div class=" m-1">
-              <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar">
+              <a href="" data-bs-toggle="modal" data-bs-target="#proyectoModificar" (click)="proyectoId(proyecto.id)">
                 <img src="/assets/iconos/editar.png" alt="">
               </a>
             </div>
             <div class=" m-1">
               <a type="button">
-                <img src="/assets/iconos/eliminar.png" alt="">
+                <img src="/assets/iconos/eliminar.png" (click)="eliminarProyecto(proyecto.id)">
               </a>
             </div>
           </div>
           <!-- FINAL Botones Editar y Borrar -->
+          <div class="modal fade" id="proyectoModificar" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Editar proyecto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="formProyecto" (ngSubmit)="modificarProyecto(proyecto.id)">
+                    <div class="mb-3">
+                      <label for="titulo" class="form-label">Editar titulo</label>
+                      <input type="text" class="form-control" formControlName="titulo"
+                        placeholder="Titulo del proyecto">
+                    </div>
+                    <div class="mb-3">
+                      <label for="fecha" class="form-label">Editar fecha de su proyecto</label>
+                      <input type="date" class="form-control" formControlName="fecha" placeholder="fecha">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" formControlName="nombre" placeholder="ingresar su nombre">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="descripcion" class="form-label">Editar detalle su proyecto </label>
+                      <textarea class="form-control" formControlName="descripcion"
+                        aria-label="With textarea"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="repo" class="form-label">Editar URL repositorio </label>
+                      <input type="text" class="form-control" formControlName="url" placeholder="ingresar su URL">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="foto" class="form-label">Editar foto de su proyecto</label>
+                      <input type="text" class="form-control" formControlName="foto" aria-label="file example"
+                        placeholder="ingresar url" required>
+                     
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </section>
+
+        
+
       </div>
     </li>
   </ul>

@@ -5,6 +5,7 @@ import { ExperienciaI } from '../componentes/models/experiencia/experiencia.inte
 import { EducacionI } from '../componentes/models/educacion/educacion.interface';
 import { SkillI } from '../componentes/models/Skill/skill.interface';
 import { ProyectoI } from '../componentes/models/proyecto/proyecto.interface';
+import { PersonaI } from '../componentes/models/persona/persona.interface';
 
 
 @Injectable({
@@ -14,14 +15,22 @@ export class PorfolioService {
 url:string="https://apiportfolio-ap.herokuapp.com/api/";
 constructor(private Http:HttpClient) { }
 
-                                //Metodos Personas
+//---------------------------------Persona----------------------------------------
+obtenerPersona(id:any):Observable<PersonaI>{
+  return this.Http.get<PersonaI>(`${this.url}personas/${id}`);//falta ver todavia
+}
+
 obtenerDatos():Observable<any> {
   //return this.Http.get('/assets/data/data.json');
   return this.Http.get<any>(`${this.url}personas`);
   }
 
+  editarPersona(id:any,cuerpo:any):Observable<PersonaI>{
+    return this.Http.put<PersonaI>(`${this.url}personas/actualizar/${id}`,cuerpo);
+  }
 
-                               //Metodos Experiencias 
+
+//-----------------------------Experiencia--------------------------------------------
   obtenerExpId(id:any):Observable<ExperienciaI>{
     return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`);
   }
@@ -43,7 +52,7 @@ obtenerDatos():Observable<any> {
 
   }
 
-  //Metodos Educacion
+  //-----------------------------Educacion--------------------------------------------
 
   obtenerEduId(id:any):Observable<EducacionI>{
     return this.Http.get<EducacionI>(`${this.url}educacion/${id}`);//falta ver todavia
@@ -122,6 +131,17 @@ obtenerDatos():Observable<any> {
   obtenerProyecto(){
     return this.Http.get<ProyectoI>(this.url+"proyecto");
   }
+
+  crearProyecto(pro:ProyectoI):Observable<ProyectoI>{
+    return this.Http.post<ProyectoI>(this.url+"proyecto/nueva",pro);
+  }
   
+  editarProyecto(id:any,cuerpo:any):Observable<ProyectoI>{
+    return this.Http.put<ProyectoI>(`${this.url}proyecto/actualizar/${id}`,cuerpo);
+  }
+
+  borrarProyeto(id:any){
+    return this.Http.delete<any>(`${this.url}proyecto/borrar/${id}`);
+  } 
   
 }

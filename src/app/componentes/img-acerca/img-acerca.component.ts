@@ -14,11 +14,8 @@ export class ImgAcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosAcerca.obtenerDatos().subscribe(data =>{
-      //console.log(data);
+      console.log(data);
       this.acercaList=data[0];
-      
-      
-      
     })
   }
 

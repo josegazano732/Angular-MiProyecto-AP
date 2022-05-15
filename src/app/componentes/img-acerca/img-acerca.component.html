@@ -39,7 +39,7 @@
                     </div>
                     <div>
                         <a href="" data-bs-toggle="modal" data-bs-target="#modalAcerca">
-                            <img src="/assets/iconos/plus.png" class=" img-fluid" alt=""
+                            <img src="/assets/iconos/editar.png" class=" img-fluid" alt=""
                                 style="margin-top: rem; margin-left: rem; height: 2rem; width: 2rem;">
                         </a>
                     </div>
@@ -50,44 +50,44 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar datos Personales</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Agregar nombre completo</label>
-                                <input type="text" class="form-control m-1" id="formGroupExampleInput"
+                                <input type="text" class="form-control m-1"  formControlName="nombre"
                                     placeholder="Nombre">
                                     <input type="text" class="form-control m-1" id="formGroupExampleInput"
                                     placeholder="Apellido">
                             </div>
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Domicilio</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput"
+                                <input type="text" class="form-control" formControlName="domicilio"
                                     placeholder="Domicilio">
                                 <label for="formGroupExampleInput" class="form-label">Fecha Nacimiento</label>
-                                <input type="date" class="form-control" id="formGroupExampleInput"
+                                <input type="date" class="form-control" formControlName="fechaNac"
                                     placeholder="Fecha">
                             </div>
 
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Contacto</label>
-                                <input type="tel" class="form-control m-1" id="formGroupExampleInput"
+                                <input type="tel" class="form-control m-1" formControlName="contacto"
                                     placeholder="Telefono">
-                                <input type="email" class="form-control m-1" id="formGroupExampleInput"
+                                <input type="email" class="form-control m-1" formControlName="correo"
                                     placeholder="Correo Electronico">    
                             </div>
 
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Sobre mi</label>
-                                <input type="text" class="form-control m-1" id="formGroupExampleInput"
+                                <input type="text" class="form-control m-1" formControlName="sobre_mi"
                                     placeholder="Sobre mi">    
                             </div>
 
                             <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Agregar Foto</label>
-                                <input type="file" class="form-control" aria-label="file example" required>
+                                <label for="formGroupExampleInput" class="form-label">Agregar Foto con URL</label>
+                                <input type="text" class="form-control" aria-label="file example" required formControlName="url_foto">
                                 <div class="invalid-feedback">Example invalid form file feedback</div>
                             </div>
 

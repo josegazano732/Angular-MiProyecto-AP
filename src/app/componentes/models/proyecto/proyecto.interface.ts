@@ -4,6 +4,6 @@ export interface ProyectoI {
     fecha:Date;
     nombre:string;
     descripcion:string;
-    repo:string;
+    url:string;
     foto:string;
 }
