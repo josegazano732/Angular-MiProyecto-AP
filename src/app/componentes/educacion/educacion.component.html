@@ -9,7 +9,7 @@
 
     <div class="">
         <div class="container d-flex justify-content-end">
-            <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalEducacion">
+            <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="limpiarEdu()">
                 <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" />
             </a>
         </div>
@@ -53,8 +53,8 @@
                                 <label for="logo" class="form-label">
                                     Agregar logo de Institucion
                                 </label>
-                                <input type="file" class="form-control" formControlName="url_logo"
-                                    aria-label="file example" required />
+                                <input type="text" class="form-control" formControlName="url_logo"
+                                    aria-label="file example" required placeholder="URL" />
                                 <div class="invalid-feedback">
                                     Example invalid form file feedback
                                 </div>
@@ -151,7 +151,7 @@
                             <label for="logo" class="form-label">
                                 Agregar logo de Institucion
                             </label>
-                            <input type="file" class="form-control" formControlName="url_logo"
+                            <input type="text" class="form-control" formControlName="url_logo"
                                 aria-label="file example" required />
                             <div class="invalid-feedback">
                                 Example invalid form file feedback

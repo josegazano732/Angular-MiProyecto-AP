@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PorfolioService } from '../../servicios/porfolio.service';
 
@@ -8,7 +8,7 @@ import { PorfolioService } from '../../servicios/porfolio.service';
   styleUrls: ['./pie-pagina.component.css'],
   
 })
-export class PiePaginaComponent implements OnInit {
+export class PiePaginaComponent implements OnInit, OnDestroy {
 
   pieList:any;
  
@@ -20,6 +20,12 @@ export class PiePaginaComponent implements OnInit {
     this.suscription = this.pieDato.refresh$.subscribe(()=>{
       this.obtenerPersona()
       });
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
+    console.log('Observable cerrado');
+    
   }
    
   obtenerPersona(){

@@ -42,6 +42,15 @@ export class EducacionComponent implements OnInit {
     });
   }
 
+  limpiarEdu(){
+    this.formEdu.controls['id'].setValue("");
+    this.formEdu.controls['nombre'].setValue("");
+    this.formEdu.controls['inicio'].setValue("");
+    this.formEdu.controls['finalizado'].setValue("");
+    this.formEdu.controls['url_logo'].setValue("");
+    //this.formEdu.controls['persona_id'].setValue(data.persona_id);
+  }
+
   crearEdu(){
     //console.log(this.formEdu.value);
     this.educacionServi.crearEducacion(this.formEdu.value).subscribe((data:EducacionI)=>{
@@ -79,13 +88,6 @@ export class EducacionComponent implements OnInit {
         //console.log(data);
         this.educacionList=data;
       });
-
-      this.formEdu.controls['id'].setValue("");
-      this.formEdu.controls['nombre'].setValue("");
-      this.formEdu.controls['inicio'].setValue("");
-      this.formEdu.controls['finalizado'].setValue("");
-      this.formEdu.controls['url_logo'].setValue("");
-      //this.formEdu.controls['persona_id'].setValue(data.persona_id);
     });
   }
 

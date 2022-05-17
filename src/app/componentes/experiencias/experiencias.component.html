@@ -10,7 +10,7 @@
 
         <div class="">
             <div class="container d-flex justify-content-end">
-                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia">
+                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="limpiarExp()">
                     <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
             </div>
@@ -56,7 +56,7 @@
                                 <div class="mb-3">
                                     <label for="logo" class="form-label">Agregar logo de
                                         Empresa</label>
-                                    <input type="file" class="form-control" formControlName="url_logo"
+                                    <input type="text" class="form-control" formControlName="url_logo"
                                         aria-label="file example" required>
                                     <div class="invalid-feedback">Example invalid form file feedback</div>
                                 </div>

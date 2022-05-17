@@ -39,9 +39,22 @@ export class ExperienciasComponent implements OnInit {
     this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
       //console.log(data);
       this.experienciaList=data;
-      this.form.controls['persona_id'].setValue(data[0].persona_id);
-      //console.log(this.form.value);
     });
+    this.datosExperiencia.obtenerDatos().subscribe((data:any)=>{
+      this.form.controls['persona_id'].setValue(data[0].id);
+    });
+
+  }
+
+  limpiarExp(){
+    this.form.controls['id'].setValue("");
+      this.form.controls['nombreempresa'].setValue("");
+      this.form.controls['fechainicio'].setValue("");
+      this.form.controls['fechafin'].setValue("");
+      this.form.controls['tipo_empleo_id'].setValue("");
+      this.form.controls['descripcion'].setValue("");
+      //this.form.controls['persona_id'].setValue(xp.persona_id);
+      this.form.controls['url_logo'].setValue("");
   }
 
 
@@ -71,7 +84,7 @@ export class ExperienciasComponent implements OnInit {
       this.form.controls['fechafin'].setValue(xp.fechafin);
       this.form.controls['tipo_empleo_id'].setValue(xp.tipo_empleo_id);
       this.form.controls['descripcion'].setValue(xp.descripcion);
-      this.form.controls['persona_id'].setValue(xp.persona_id);
+      //this.form.controls['persona_id'].setValue(xp.persona_id);
       this.form.controls['url_logo'].setValue(xp.url_logo);
       
     })
