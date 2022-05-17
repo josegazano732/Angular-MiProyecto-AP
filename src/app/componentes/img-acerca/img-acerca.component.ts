@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ResourceLoader } from '@angular/compiler';
+import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PorfolioService } from '../../servicios/porfolio.service';
 import { PersonaI } from '../models/persona/persona.interface';
@@ -6,12 +7,13 @@ import { PersonaI } from '../models/persona/persona.interface';
 @Component({
   selector: 'app-img-acerca',
   templateUrl: './img-acerca.component.html',
-  styleUrls: ['./img-acerca.component.css']
+  styleUrls: ['./img-acerca.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImgAcercaComponent implements OnInit {
 
   acercaList:any;
-
+  
   formPersona:FormGroup;
 
   constructor(private datosAcerca:PorfolioService,private formBuilder: FormBuilder) { 
@@ -30,16 +32,17 @@ export class ImgAcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosAcerca.obtenerDatos().subscribe((data:any) =>{
-      console.log(data);
+      //console.log(data);
       this.acercaList=data[0];
-    })
+    });
+     
   }
 
   personaId(id:any){
     console.log(id);
     this.datosAcerca.obtenerPersonaId(id).subscribe((data:PersonaI)=> {
       let xp:any=data;
-      console.log(xp);
+      //console.log(xp);
       
       this.formPersona.controls['id'].setValue(xp.id);
       this.formPersona.controls['nombre'].setValue(xp.nombre);

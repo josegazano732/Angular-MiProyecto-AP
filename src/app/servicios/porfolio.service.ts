@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
 import { EducacionI } from '../componentes/models/educacion/educacion.interface';
 import { SkillI } from '../componentes/models/Skill/skill.interface';
@@ -8,26 +10,43 @@ import { ProyectoI } from '../componentes/models/proyecto/proyecto.interface';
 import { PersonaI } from '../componentes/models/persona/persona.interface';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PorfolioService {
 url:string="https://apiportfolio-ap.herokuapp.com/api/";
+private _refresh$ = new Subject<void>();
+
 constructor(private Http:HttpClient) { }
 
 //---------------------------------Persona----------------------------------------
+get refresh$(){
+  return this._refresh$;
+}
+
 obtenerPersonaId(id:any):Observable<PersonaI>{
   return this.Http.get<PersonaI>(`${this.url}personas/${id}`);//falta ver todavia
 }
 
 obtenerDatos():Observable<any> {
-  //return this.Http.get('/assets/data/data.json');
   return this.Http.get<any>(`${this.url}personas`);
   }
 
   editarPersona(id:any,cuerpo:any):Observable<PersonaI>{
-    return this.Http.put<PersonaI>(`${this.url}personas/actualizar/${id}`,cuerpo);
+    return this.Http.put<PersonaI>(`${this.url}personas/actualizar/${id}`,cuerpo)
+    .pipe(
+      tap(()=>{
+        this._refresh$.next();
+      })
+    )
   }
+
+
+
+  
+
+
 
 
 //-----------------------------Experiencia--------------------------------------------
