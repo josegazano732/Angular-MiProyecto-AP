@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
+import { catchError, tap } from 'rxjs/operators';
 
 import { ExperienciaI } from '../componentes/models/experiencia/experiencia.interface';
 import { EducacionI } from '../componentes/models/educacion/educacion.interface';
 import { SkillI } from '../componentes/models/Skill/skill.interface';
 import { ProyectoI } from '../componentes/models/proyecto/proyecto.interface';
 import { PersonaI } from '../componentes/models/persona/persona.interface';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +21,15 @@ export class PorfolioService {
 url:string="https://apiportfolio-ap.herokuapp.com/api/";
 private _refresh$ = new Subject<void>();
 
-constructor(private Http:HttpClient) { }
+constructor(private Http:HttpClient, private router:Router) { }
+
+private isNoAutorizado(e:any): boolean{
+  if(e.status==401 || e.status==403){
+    this.router.navigate(['/loguin'])
+    return true;
+  }
+  return false;
+}
 
 //---------------------------------Persona----------------------------------------
 get refresh$(){
