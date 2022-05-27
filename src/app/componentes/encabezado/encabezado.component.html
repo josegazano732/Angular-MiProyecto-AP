@@ -35,10 +35,22 @@
                                 <img src="/assets/iconos/003-linkedin.png" alt="" style="height: 2rem;">
                             </a>
                         </li>
-                        <li class="nav-item m-2">
-                            <a href="#" class="btn border-2 border-light text-white" [routerLink]="['/loguin']">Login</a>
-                        </li>
+                        <ul class="navbar-nav navbar-right">
+                            <li class="nav-item m-2" *ngIf="authService.isAuthenticated()">
+                                <a class="btn border-2 border-light text-white btn-outline"  [routerLink]="['/loguin']">Login</a>
+                            </li>
+                            <li *ngIf="authService.isAuthenticated()" class="dropdown nav-item m-2"></li>
+                            <li  class="nav-item m-2">
+                                <button class="btn border-2 border-light text-white btn-outline"  (click)="logout()" [routerLink]="['/loguin']"  type="submit">Cerrar Sesion</button>
+                            </li>
+                                
+                            
+                            
+
+                        </ul>
+                        
                     </ul>
+                   
                 </div>
             </div>
         </div>
