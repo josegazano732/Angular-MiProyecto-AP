@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { PorfolioService } from '../../servicios/porfolio.service';
+import { AuthService } from '../inicio-sesion/auth.service';
 import { EducacionI } from '../models/educacion/educacion.interface';
 
 
@@ -19,7 +20,7 @@ export class EducacionComponent implements OnInit {
 
   formEdu:FormGroup;
 
-  constructor(private educacionServi:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
+  constructor(private educacionServi:PorfolioService,private formBuilder: FormBuilder,private ruta:Router,public authService: AuthService) { 
   this.formEdu = this.formBuilder.group({
     id:[''],
     nombre:[''],

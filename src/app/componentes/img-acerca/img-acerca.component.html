@@ -37,7 +37,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div *ngIf="authService.hasRole('ROLE_ADMIN')">
                         <a href="" data-bs-toggle="modal" data-bs-target="#modalAcerca" (click)="personaId(acercaList.id)">
                             <img src="/assets/iconos/editar.png" class=" img-fluid" 
                                 style="margin-top: rem; margin-left: rem; height: 2rem; width: 2rem;">

@@ -8,7 +8,7 @@
     </div>
 
     <div class="">
-        <div class="container d-flex justify-content-end">
+        <div class="container d-flex justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
             <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="limpiarEdu()">
                 <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="" />
             </a>
@@ -98,13 +98,13 @@
                         </dd>
 
                         <!-- Botones Editar y Borrar -->
-                        <div class="d-flex m-1">
+                        <div class="d-flex m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                             <div class=" m-1">
                                 <a href="" data-bs-toggle="modal" data-bs-target="#modalEducacionEditar" (click)="obtenerEduId(edu.id)">
                                     <img src="/assets/iconos/editar.png" alt="">
                                 </a>
                             </div>
-                            <div class=" m-1">
+                            <div class=" m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                                 <a type="button" (click)="eliminarEduId(edu.id)">
                                     <img src="/assets/iconos/eliminar.png" alt="">
                                 </a>

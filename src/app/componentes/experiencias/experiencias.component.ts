@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { ExperienciaI } from '../models/experiencia/experiencia.interface';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../inicio-sesion/auth.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ExperienciasComponent implements OnInit {
 
   form:FormGroup;
 
-  constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) { 
+  constructor(private datosExperiencia:PorfolioService,private formBuilder: FormBuilder,private ruta:Router,public authService: AuthService) { 
     this.form = this.formBuilder.group({
       id:[''],
       nombreempresa:['',[Validators.required]],

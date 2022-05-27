@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SkillI } from '../models/Skill/skill.interface';
 import Swal from 'sweetalert2';
+import { AuthService } from '../inicio-sesion/auth.service';
 
 
 
@@ -23,7 +24,7 @@ export class HardSoftSkillComponent implements OnInit {
 
   formSkill:FormGroup;
 
-constructor(private skillServicio:PorfolioService,private formBuilder: FormBuilder,private ruta:Router) {
+constructor(private skillServicio:PorfolioService,private formBuilder: FormBuilder,private ruta:Router,public authService: AuthService) {
   this.formSkill = this.formBuilder.group({
     idsoft_skill:[''],
     idhard_skill:[''],

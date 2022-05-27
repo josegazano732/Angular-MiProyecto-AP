@@ -9,8 +9,8 @@
     <section class="container" style="">
 
         <div class="">
-            <div class="container d-flex justify-content-end">
-                <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="limpiarExp()">
+            <div class="container d-flex justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
+                <a href=""  class="m-3" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="limpiarExp()">
                     <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
             </div>
@@ -116,12 +116,12 @@
 
                     <!-- Botones Editar y Borrar -->
                     <div class="d-flex m-1">
-                        <div class=" m-1">
+                        <div class=" m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                             <a href="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="obtenerExpId(exp.id)">
                                 <img src="/assets/iconos/editar.png" alt="">
                             </a>
                         </div>
-                        <div class=" m-1">
+                        <div class=" m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                             <a type="button" (click)="eliminarExpId(exp.id)">
                                 <img src="/assets/iconos/eliminar.png" alt="">
                             </a>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { AuthService } from '../inicio-sesion/auth.service';
 import { ProyectoI } from '../models/proyecto/proyecto.interface';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProyectosComponent implements OnInit {
 
   formProyecto:FormGroup;
 
-  constructor(private datosProyecto:PorfolioService,private formBuilder: FormBuilder) {
+  constructor(private datosProyecto:PorfolioService,private formBuilder: FormBuilder,public authService: AuthService) {
     this.formProyecto = this.formBuilder.group({
       id:[''],
       titulo:['',[Validators.required]],

@@ -37,6 +37,11 @@ private agregarAuthorizationHeader() {
 
 private isNoAutorizado(e:any): boolean{
   if(e.status==401){
+    
+    if (this.authService.isAuthenticated()) {
+      this.authService.logout();
+    }
+
     this.router.navigate(['/loguin'])
     return true;
   }
@@ -68,24 +73,7 @@ obtenerDatos():Observable<any> {
         this._refresh$.next();
       })
       
-    ).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;
-     
-    
+    );
   }
 
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PorfolioService } from '../../servicios/porfolio.service';
 import { PersonaI } from '../models/persona/persona.interface';
 import { __values } from 'tslib';
+import { AuthService } from '../inicio-sesion/auth.service';
 
 @Component({
   selector: 'app-img-acerca',
@@ -17,7 +18,7 @@ export class ImgAcercaComponent implements OnInit {
   
   formPersona:FormGroup;
 
-  constructor(private datosAcerca:PorfolioService,private formBuilder: FormBuilder,private router: Router) { 
+  constructor(private datosAcerca:PorfolioService,private formBuilder: FormBuilder,private router: Router,public authService: AuthService) { 
     this.formPersona = this.formBuilder.group({
       id:[''],
       nombre:[''],
@@ -38,7 +39,6 @@ export class ImgAcercaComponent implements OnInit {
       console.log(this.acercaList);
       
     });
-     
   }
 
   personaId(id:any){
@@ -64,7 +64,7 @@ export class ImgAcercaComponent implements OnInit {
   editarPersona(id:any){
     this.datosAcerca.editarPersona(this.formPersona.value.id,this.formPersona.value).subscribe((data:any) => {
       this.datosAcerca.obtenerDatos().subscribe((data:any) => {
-        this.acercaList=data[0].EventEmitter;
+        this.acercaList=data[0];
       });
       
     });

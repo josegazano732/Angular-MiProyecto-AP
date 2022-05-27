@@ -13,9 +13,9 @@
 <div class="modal fade" id="modalHard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" >
                 <h5 class="modal-title" id="exampleModalLabel">Agregar Hard Skill</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="formSkill" (ngSubmit)="crearHard()">
@@ -46,7 +46,7 @@
         <div class="about-skills m-1">
 
             <h2 class=" text-center ">Hard-Skill</h2>
-            <div class="container d-flex justify-content-end">
+            <div class="container d-flex justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
                 <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalHard" (click)="limpiarForm()">
                     <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <!-- Botones Editar y Borrar -->
-                        <div class="d-flex m-1">
+                        <div class="d-flex m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                             <div class=" m-1">
                                 <a href="" data-bs-toggle="modal" data-bs-target="#skillModificarHard"
                                     (click)="hardId(sk.idhard_skill)">
@@ -177,7 +177,7 @@
     <div class="">
         <div class="about-skills m-1 " style="min-width: 15rem;">
             <h2 class=" text-center">Soft-Skill</h2>
-            <div class="container d-flex justify-content-end">
+            <div class="container d-flex justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
                 <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalSoft" (click)="limpiarForm()">
                     <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
                 </a>
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                     <!-- Botones Editar y Borrar -->
-                    <div class="d-flex m-1">
+                    <div class="d-flex m-1" *ngIf="authService.hasRole('ROLE_ADMIN')">
                         <div class=" m-1">
                             <a href="" data-bs-toggle="modal" data-bs-target="#skillSoft" (click)="softdId(sb.idsoft_skill)">
                                 <img src="/assets/iconos/editar.png" alt="">

@@ -8,7 +8,7 @@
   </div>
 
   <div class="">
-    <div class="container d-flex justify-content-end">
+    <div class="container d-flex justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
       <a href="" class="m-3" data-bs-toggle="modal" data-bs-target="#modalProyecto" (click)="limpiarFormP()">
         <img src="/assets/iconos/plus.png" style="height: 2rem; width: 2rem;" alt="">
       </a>
@@ -94,7 +94,7 @@
           </article>
 
           <!-- Botones Editar y Borrar -->
-          <div class="d-flex m-1 justify-content-end">
+          <div class="d-flex m-1 justify-content-end" *ngIf="authService.hasRole('ROLE_ADMIN')">
             <div class=" m-1">
               <a href="" data-bs-toggle="modal" data-bs-target="#proyectoModificar" (click)="proyectoId(proyecto.id)">
                 <img src="/assets/iconos/editar.png" alt="">
