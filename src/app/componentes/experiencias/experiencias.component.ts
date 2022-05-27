@@ -5,6 +5,7 @@ import { Experiencia } from './experiencia';
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { ExperienciaI } from '../models/experiencia/experiencia.interface';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -69,6 +70,11 @@ export class ExperienciasComponent implements OnInit {
         this.experienciaList=data;
       });
     });
+    Swal.fire(
+      'Creado!',
+      ` Nueva experiencia creada con éxito.`,
+      'success'
+    )
   }
 
   obtenerExpId(id:any){
@@ -112,6 +118,11 @@ export class ExperienciasComponent implements OnInit {
       this.form.controls['url_logo'].setValue("");
       //location.reload()
     });
+    Swal.fire(
+      'Editado!',
+      ` Experiencia nro: ${id} editado con éxito.`,
+      'success'
+    )
   }
 
   eliminarExpId(id:any){
@@ -124,6 +135,11 @@ export class ExperienciasComponent implements OnInit {
         this.experienciaList=data;
       });
     })
+    Swal.fire(
+      'Eliminado!',
+      ` Experiencia nro: ${id} eliminado con éxito.`,
+      'success'
+    )
   }
 
 

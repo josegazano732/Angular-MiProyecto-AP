@@ -33,7 +33,7 @@ export class PiePaginaComponent implements OnInit, OnDestroy {
       //console.log(data[0]);
       this.pieList=data[0];
       
-      console.log(this.pieList);
+      //console.log(this.pieList);
     }); 
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { PorfolioService } from '../../servicios/porfolio.service';
 import { EducacionI } from '../models/educacion/educacion.interface';
 
@@ -59,6 +60,11 @@ export class EducacionComponent implements OnInit {
         this.educacionList=data;
       });
     });
+    Swal.fire(
+      'Creado!',
+      ` Nueva Educacion creada con éxito.`,
+      'success'
+    )
   }
 
   obtenerEduId(id:any){
@@ -89,6 +95,11 @@ export class EducacionComponent implements OnInit {
         this.educacionList=data;
       });
     });
+    Swal.fire(
+      'Editado!',
+      ` Educacion nro: ${id} editado con éxito.`,
+      'success'
+    )
   }
 
   eliminarEduId(id:any){
@@ -101,6 +112,11 @@ export class EducacionComponent implements OnInit {
         this.educacionList=data;
       });
     })
+    Swal.fire(
+      'Eliminado!',
+      ` Educacion nro: ${id} eliminado con éxito.`,
+      'success'
+    )
   }
 
 

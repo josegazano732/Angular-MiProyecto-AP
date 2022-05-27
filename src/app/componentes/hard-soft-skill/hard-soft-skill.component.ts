@@ -63,6 +63,11 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
         this.hardList=data;
       });
     });
+    Swal.fire(
+      'Creado!',
+      ` Nuevo Hard-Skill creado con éxito.`,
+      'success'
+    )
   }
 
   hardId(id:any){
@@ -83,6 +88,11 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
       });
       //this.formSkill.controls['persona_id'].setValue(data.persona_id);
     });
+    Swal.fire(
+      'Editado!',
+      ` Skill nro: ${id} editado con éxito.`,
+      'success'
+    )
   }
 
   eliminarHardId(id:any){
@@ -96,7 +106,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
     })
     Swal.fire(
       'Eliminado!',
-      ` ${id} eliminado con éxito.`,
+      ` Skill nro: ${id} eliminado con éxito.`,
       'success'
     )
 }
@@ -110,6 +120,11 @@ crearSoft(){
       this.softList=data;
     });
   });
+  Swal.fire(
+    'Creado!',
+    ` Nuevo Soft-Skill creado con éxito.`,
+    'success'
+  )
 }
 
 softdId(id:any){
@@ -134,6 +149,11 @@ editarSoft(id:any){
     });
     //this.formSkill.controls['persona_id'].setValue(data.persona_id);
   });
+  Swal.fire(
+    'Editado!',
+    ` Skill nro: ${id} editado con éxito.`,
+    'success'
+  )
 }
 
 eliminarSoftdId(id:any){
@@ -144,7 +164,10 @@ eliminarSoftdId(id:any){
       this.softList=data;
     });
   })
-
-
+  Swal.fire(
+    'Eliminado!',
+    ` Skill nro: ${id} eliminado con éxito.`,
+    'success'
+  )
  }
 }

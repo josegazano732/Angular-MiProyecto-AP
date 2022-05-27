@@ -1,8 +1,9 @@
-import { ResourceLoader } from '@angular/compiler';
-import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PorfolioService } from '../../servicios/porfolio.service';
 import { PersonaI } from '../models/persona/persona.interface';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-img-acerca',
@@ -16,7 +17,7 @@ export class ImgAcercaComponent implements OnInit {
   
   formPersona:FormGroup;
 
-  constructor(private datosAcerca:PorfolioService,private formBuilder: FormBuilder) { 
+  constructor(private datosAcerca:PorfolioService,private formBuilder: FormBuilder,private router: Router) { 
     this.formPersona = this.formBuilder.group({
       id:[''],
       nombre:[''],
@@ -32,14 +33,16 @@ export class ImgAcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosAcerca.obtenerDatos().subscribe((data:any) =>{
-      //console.log(data);
+      console.log(data);
       this.acercaList=data[0];
+      console.log(this.acercaList);
+      
     });
      
   }
 
   personaId(id:any){
-    console.log(id);
+    //console.log(id);
     this.datosAcerca.obtenerPersonaId(id).subscribe((data:PersonaI)=> {
       let xp:any=data;
       //console.log(xp);
@@ -61,10 +64,11 @@ export class ImgAcercaComponent implements OnInit {
   editarPersona(id:any){
     this.datosAcerca.editarPersona(this.formPersona.value.id,this.formPersona.value).subscribe((data:any) => {
       this.datosAcerca.obtenerDatos().subscribe((data:any) => {
-        this.acercaList=data[0];
+        this.acercaList=data[0].EventEmitter;
       });
-      //this.formSkill.controls['persona_id'].setValue(data.persona_id);
+      
     });
+    
   }
 
 }

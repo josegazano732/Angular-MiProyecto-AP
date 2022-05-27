@@ -42,7 +42,7 @@ export class EncabezadoComponent implements OnInit,OnDestroy {
       //console.log(data[0]);
       this.encabezadoList=data[0];
       
-      console.log(this.encabezadoList);
+      //console.log(this.encabezadoList);
     }); 
   }
 
