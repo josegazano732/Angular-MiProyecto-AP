@@ -6,6 +6,7 @@ import { __values } from 'tslib';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SkillI } from '../models/Skill/skill.interface';
+import Swal from 'sweetalert2';
 
 
 
@@ -93,6 +94,11 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
         this.hardList=data;
       });
     })
+    Swal.fire(
+      'Eliminado!',
+      ` ${id} eliminado con éxito.`,
+      'success'
+    )
 }
 
 //-----------------------------------Metodos para Soft-Skill------------------------
