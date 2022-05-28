@@ -35,23 +35,7 @@ constructor(private Http:HttpClient, private router:Router,private authService: 
   return this.httpHeaders;
 }*/
 
-private isNoAutorizado(e:any): boolean{
-  if(e.status==401){
-    
-    if (this.authService.isAuthenticated()) {
-      this.authService.logout();
-    }
 
-    this.router.navigate(['/loguin'])
-    return true;
-  }
-  if( e.status==403){
-    Swal.fire('Acceso denegado', `Hola ${this.authService.usuario.username} no tienes acceso a este recurso!`, 'warning');
-    this.router.navigate(['/portfolio']);
-    return true;
-  }
-  return false;
-}
 
 //---------------------------------Persona----------------------------------------
 get refresh$(){
@@ -93,57 +77,15 @@ obtenerDatos():Observable<any> {
   }
 
   crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
-    return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp)
   }
 
   editarExperiencia(id:any,cuerpo:any):Observable<any>{
-    return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo)
   }
 
   borrarExpId(id:any){
-    return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
-
+    return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`)
   }
 
   //-----------------------------Educacion--------------------------------------------
@@ -159,56 +101,15 @@ obtenerDatos():Observable<any> {
 
   crearEducacion(edu:EducacionI):Observable<EducacionI>{
     //const path= this.url+"experiencia/nueva";
-    return this.Http.post<EducacionI>(this.url+"educacion/nueva",edu).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.post<EducacionI>(this.url+"educacion/nueva",edu)
   }
 
   editarEducacion(id:any,cuerpo:any):Observable<EducacionI>{
-    return this.Http.put<EducacionI>(`${this.url}educacion/actualizar/${id}`,cuerpo).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.put<EducacionI>(`${this.url}educacion/actualizar/${id}`,cuerpo)
   }
 
   borrarEduId(id:any){
-    return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`)
   } 
   //Final de Metodos Educacion
 
@@ -225,56 +126,15 @@ obtenerDatos():Observable<any> {
   }
 
   crearHardSkill(hard:SkillI):Observable<SkillI>{
-    return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard)
   }
 
   editarHardSkill(id:any,cuerpo:any):Observable<SkillI>{
-    return this.Http.put<SkillI>(`${this.url}hardskill/actualizar/${id}`,cuerpo).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;
+    return this.Http.put<SkillI>(`${this.url}hardskill/actualizar/${id}`,cuerpo)
   }
 
   borrarHardId(id:any){
-    return this.Http.delete<any>(`${this.url}hardskill/borrar/${id}`).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.delete<any>(`${this.url}hardskill/borrar/${id}`)
   } 
 
   //----------------------------Soft-Skill---------------------------------------------
@@ -287,56 +147,15 @@ obtenerDatos():Observable<any> {
   }
 
   crearSoftSkill(soft:SkillI):Observable<SkillI>{
-    return this.Http.post<SkillI>(this.url+"softskill/nueva",soft).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.post<SkillI>(this.url+"softskill/nueva",soft)
   }
 
   editarSoftSkill(id:any,cuerpo:any):Observable<SkillI>{
-    return this.Http.put<SkillI>(`${this.url}softskill/actualizar/${id}`,cuerpo).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.put<SkillI>(`${this.url}softskill/actualizar/${id}`,cuerpo)
   }
 
   borrarSoftId(id:any){
-    return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;
+    return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`)
   } 
 
 
@@ -350,56 +169,15 @@ obtenerDatos():Observable<any> {
   }
 
   crearProyecto(pro:ProyectoI):Observable<ProyectoI>{
-    return this.Http.post<ProyectoI>(this.url+"proyecto/nueva",pro).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.post<ProyectoI>(this.url+"proyecto/nueva",pro)
   }
   
   editarProyecto(id:any,cuerpo:any):Observable<ProyectoI>{
-    return this.Http.put<ProyectoI>(`${this.url}proyecto/actualizar/${id}`,cuerpo).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        if (e.status == 400) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.put<ProyectoI>(`${this.url}proyecto/actualizar/${id}`,cuerpo)
   }
 
   borrarProyeto(id:any){
-    return this.Http.delete<any>(`${this.url}proyecto/borrar/${id}`).pipe(
-      catchError(e => {
-
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );;;
+    return this.Http.delete<any>(`${this.url}proyecto/borrar/${id}`)
   } 
   
 }

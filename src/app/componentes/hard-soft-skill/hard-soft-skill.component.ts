@@ -57,10 +57,10 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   }
 
   crearHard(){
-    console.log(this.formSkill.value);
+    //console.log(this.formSkill.value);
     this.skillServicio.crearHardSkill(this.formSkill.value).subscribe((data:SkillI)=>{
       this.skillServicio.obtenerSkillHard().subscribe((data:any) => {
-        console.log(data);
+        //console.log(data);
         this.hardList=data;
       });
     });
@@ -72,7 +72,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   }
 
   hardId(id:any){
-    console.log(id);
+    //console.log(id);
     this.skillServicio.obtenerHardId(id).subscribe((data:SkillI)=> {
       let xp:any=data;
       this.formSkill.controls['idhard_skill'].setValue(xp.idhard_skill);
@@ -97,7 +97,7 @@ constructor(private skillServicio:PorfolioService,private formBuilder: FormBuild
   }
 
   eliminarHardId(id:any){
-    console.log(id);
+    //console.log(id);
     this.skillServicio.borrarHardId(id).subscribe((data:any)=>{
       console.log(data);
 
@@ -129,7 +129,7 @@ crearSoft(){
 }
 
 softdId(id:any){
-  console.log(id);
+  //console.log(id);
   this.skillServicio.obtenerSoftId(id).subscribe((data:SkillI)=> {
     let xp:any=data;
     this.formSkill.controls['idsoft_skill'].setValue(xp.idsoft_skill);
@@ -142,7 +142,7 @@ softdId(id:any){
 }
 
 editarSoft(id:any){
-  console.log(id);
+  //console.log(id);
   this.skillServicio.editarSoftSkill(this.formSkill.value.idsoft_skill,this.formSkill.value).subscribe((data:any) => {
     this.skillServicio.obtenerSkillSoft().subscribe((data:any) => {
       console.log(data);

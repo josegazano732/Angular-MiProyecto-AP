@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import { AuthService } from '../inicio-sesion/auth.service';
 import { ProyectoI } from '../models/proyecto/proyecto.interface';
@@ -51,7 +50,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   crearProyecto(){
-    console.log(this.formProyecto.value);
+    //console.log(this.formProyecto.value);
     this.datosProyecto.crearProyecto(this.formProyecto.value).subscribe((data:ProyectoI)=>{
       console.log(data);
       this.datosProyecto.obtenerProyecto().subscribe((data:any) => {
@@ -86,7 +85,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   eliminarProyecto(id:any){
-    console.log(id);
+    //console.log(id);
     this.datosProyecto.borrarProyeto(id).subscribe((data:any)=>{
       //console.log(data);
       this.datosProyecto.obtenerProyecto().subscribe((data:any) => {

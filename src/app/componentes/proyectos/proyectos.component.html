@@ -42,7 +42,7 @@
 
               <div class="mb-3">
                 <label for="repo" class="form-label">Ingresar URL repositorio </label>
-                <input type="text" class="form-control" formControlName="repo" placeholder="ingresar su URL">
+                <input type="url" class="form-control" formControlName="repo" placeholder="ingresar su URL">
               </div>
 
               <div class="mb-3">
@@ -73,13 +73,15 @@
     <li class="lista" *ngFor="let proyecto of proyectoList">
       <div class="seccion-inferior contenedor seccion container">
         <section class="blog">
-          <article class="entrada-blog">
+          <article class="entrada-blog" >
             <div class="imagen ">
               <img [src]="proyecto.foto" style="max-width: 100%;" alt="Entrada de imagen" />
+              
             </div>
-            <div class="texto-entrada ">
-              <a [href]="proyecto.repo">
+            <div class="texto-entrada " >
+              <a [href]=proyecto.url target="_blank">
                 <h4>{{proyecto.titulo}}</h4>
+                
               </a>
               <p>
                 Escrito el:
@@ -90,7 +92,9 @@
               <p>
                 {{proyecto.descripcion}}
               </p>
+              
             </div>
+            
           </article>
 
           <!-- Botones Editar y Borrar -->

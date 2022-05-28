@@ -1,15 +1,15 @@
-<div class="card border-primary d-flex text-center mx-lg-5 p-5  ">
+<div class="card border-primary text-center m-auto mt-5   " style="max-width: 50%;">
   <div class=" "> 
   <div class="card-header ">{{titulo}}</div>
   <div class="card-body">
 
-    <form method="post" class="">
+    <form method="post" class="" >
       <div class="form-group col-sm-6 m-auto p-3">
         <input  [(ngModel)]="usuario.username" type="text" class="form-control"
         name="username" id="username" placeholder="Username" autofocus required>
       </div>
 
-      <div class="form-group col-sm-6 m-auto p-2">
+      <div class="form-group col-sm-6 m-auto p-3">
         <input [(ngModel)]="usuario.password" type="password" class="form-control"
         name="password" id="password" placeholder="Password" required>
       </div>

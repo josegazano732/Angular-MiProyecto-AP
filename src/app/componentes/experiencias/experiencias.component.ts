@@ -99,7 +99,7 @@ export class ExperienciasComponent implements OnInit {
 
   editarExp(id:any){
     //console.log(this.xpe.id);
-    console.log(this.form.value);
+    //console.log(this.form.value);
     
     this.datosExperiencia.editarExperiencia(this.form.value.id,this.form.value).subscribe((data:any) => {
       //console.log(data);
@@ -127,9 +127,9 @@ export class ExperienciasComponent implements OnInit {
   }
 
   eliminarExpId(id:any){
-    console.log(id);
+    //console.log(id);
     this.datosExperiencia.borrarExpId(id).subscribe((data:any)=>{
-      console.log(data);
+      //console.log(data);
 
       this.datosExperiencia.obtenerDatosExp().subscribe((data:any) => {
         //console.log(data);

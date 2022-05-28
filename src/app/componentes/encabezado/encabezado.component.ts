@@ -33,7 +33,7 @@ export class EncabezadoComponent implements OnInit,OnDestroy {
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
-    console.log('Observable cerrado');
+    //console.log('Observable cerrado');
     
   }
 

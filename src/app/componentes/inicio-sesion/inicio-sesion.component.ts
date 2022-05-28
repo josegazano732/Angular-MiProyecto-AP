@@ -29,19 +29,23 @@ export class InicioSesionComponent implements OnInit {
   }
 
   login(): void {
-    console.log(this.usuario);
+    //console.log(this.usuario);
     if (this.usuario.username == null || this.usuario.password == null) {
       Swal.fire('Error Login', 'Usuario o contraseña vacías!', 'error');
       return;
     }
 
     this.authService.loguin(this.usuario).subscribe(response => {
-      console.log(response);
+      //console.log(response);
+
+      
      
 
       this.authService.guardarUsuario(response.access_token);
       this.authService.guardarToken(response.access_token);
       let usuario = this.authService.usuario;
+
+
 
 
       this.router.navigate(['/portfolio']);
