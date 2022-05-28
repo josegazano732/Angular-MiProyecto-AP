@@ -21,19 +21,19 @@ import Swal from 'sweetalert2';
 })
 export class PorfolioService {
 url:string="https://apiportfolio-ap.herokuapp.com/api/";
-private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+//private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
 private _refresh$ = new Subject<void>();
 
 constructor(private Http:HttpClient, private router:Router,private authService: AuthService) { }
 
-private agregarAuthorizationHeader() {
+/*private agregarAuthorizationHeader() {
   let token = this.authService.token;
   if (token != null) {
     return this.httpHeaders.append('Authorization', 'Bearer ' + token);
   }
   return this.httpHeaders;
-}
+}*/
 
 private isNoAutorizado(e:any): boolean{
   if(e.status==401){
@@ -59,7 +59,7 @@ get refresh$(){
 }
 
 obtenerPersonaId(id:any):Observable<PersonaI>{
-  return this.Http.get<PersonaI>(`${this.url}personas/${id}`,{ headers: this.agregarAuthorizationHeader() });//falta ver todavia
+  return this.Http.get<PersonaI>(`${this.url}personas/${id}`);//falta ver todavia
 }
 
 obtenerDatos():Observable<any> {
@@ -67,7 +67,7 @@ obtenerDatos():Observable<any> {
   }
 
   editarPersona(id:any,cuerpo:any):Observable<PersonaI>{
-    return this.Http.put<PersonaI>(`${this.url}personas/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() })
+    return this.Http.put<PersonaI>(`${this.url}personas/actualizar/${id}`,cuerpo)
     .pipe(
       tap(()=>{
         this._refresh$.next();
@@ -85,7 +85,7 @@ obtenerDatos():Observable<any> {
 
 //-----------------------------Experiencia--------------------------------------------
   obtenerExpId(id:any):Observable<ExperienciaI>{
-    return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`,{ headers: this.agregarAuthorizationHeader() });
+    return this.Http.get<ExperienciaI>(`${this.url}experiencia/${id}`);
   }
 
   obtenerDatosExp(){
@@ -93,7 +93,7 @@ obtenerDatos():Observable<any> {
   }
 
   crearExperiencia(exp:ExperienciaI):Observable<ExperienciaI>{
-    return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.post<ExperienciaI>(this.url+"experiencia/nueva",exp).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -112,7 +112,7 @@ obtenerDatos():Observable<any> {
   }
 
   editarExperiencia(id:any,cuerpo:any):Observable<any>{
-    return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.put<any>(`${this.url}experiencia/actualizar/${id}`,cuerpo).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -131,7 +131,7 @@ obtenerDatos():Observable<any> {
   }
 
   borrarExpId(id:any){
-    return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.delete<any>(`${this.url}experiencia/borrar/${id}`).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -149,7 +149,7 @@ obtenerDatos():Observable<any> {
   //-----------------------------Educacion--------------------------------------------
 
   obtenerEduId(id:any):Observable<EducacionI>{
-    return this.Http.get<EducacionI>(`${this.url}educacion/${id}`,{ headers: this.agregarAuthorizationHeader() });//falta ver todavia
+    return this.Http.get<EducacionI>(`${this.url}educacion/${id}`);//falta ver todavia
   }
 
 
@@ -159,7 +159,7 @@ obtenerDatos():Observable<any> {
 
   crearEducacion(edu:EducacionI):Observable<EducacionI>{
     //const path= this.url+"experiencia/nueva";
-    return this.Http.post<EducacionI>(this.url+"educacion/nueva",edu,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.post<EducacionI>(this.url+"educacion/nueva",edu).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -178,7 +178,7 @@ obtenerDatos():Observable<any> {
   }
 
   editarEducacion(id:any,cuerpo:any):Observable<EducacionI>{
-    return this.Http.put<EducacionI>(`${this.url}educacion/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.put<EducacionI>(`${this.url}educacion/actualizar/${id}`,cuerpo).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -197,7 +197,7 @@ obtenerDatos():Observable<any> {
   }
 
   borrarEduId(id:any){
-    return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.delete<any>(`${this.url}educacion/borrar/${id}`).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -216,7 +216,7 @@ obtenerDatos():Observable<any> {
   //Metodos para los Skill
   //-----------------------------Hard-Skill--------------------------------------------
   obtenerHardId(id:any):Observable<SkillI>{
-    return this.Http.get<SkillI>(`${this.url}hardskill/${id}`,{ headers: this.agregarAuthorizationHeader() });//falta ver todavia
+    return this.Http.get<SkillI>(`${this.url}hardskill/${id}`);//falta ver todavia
   }
 
 
@@ -225,7 +225,7 @@ obtenerDatos():Observable<any> {
   }
 
   crearHardSkill(hard:SkillI):Observable<SkillI>{
-    return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.post<SkillI>(this.url+"hardskill/nueva",hard).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -244,7 +244,7 @@ obtenerDatos():Observable<any> {
   }
 
   editarHardSkill(id:any,cuerpo:any):Observable<SkillI>{
-    return this.Http.put<SkillI>(`${this.url}hardskill/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.put<SkillI>(`${this.url}hardskill/actualizar/${id}`,cuerpo).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -263,7 +263,7 @@ obtenerDatos():Observable<any> {
   }
 
   borrarHardId(id:any){
-    return this.Http.delete<any>(`${this.url}hardskill/borrar/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.delete<any>(`${this.url}hardskill/borrar/${id}`).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -279,7 +279,7 @@ obtenerDatos():Observable<any> {
 
   //----------------------------Soft-Skill---------------------------------------------
   obtenerSoftId(id:any):Observable<SkillI>{
-    return this.Http.get<SkillI>(`${this.url}softskill/${id}`,{ headers: this.agregarAuthorizationHeader() });//falta ver todavia
+    return this.Http.get<SkillI>(`${this.url}softskill/${id}`);//falta ver todavia
   }
 
   obtenerSkillSoft(){
@@ -287,7 +287,7 @@ obtenerDatos():Observable<any> {
   }
 
   crearSoftSkill(soft:SkillI):Observable<SkillI>{
-    return this.Http.post<SkillI>(this.url+"softskill/nueva",soft,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.post<SkillI>(this.url+"softskill/nueva",soft).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -306,7 +306,7 @@ obtenerDatos():Observable<any> {
   }
 
   editarSoftSkill(id:any,cuerpo:any):Observable<SkillI>{
-    return this.Http.put<SkillI>(`${this.url}softskill/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.put<SkillI>(`${this.url}softskill/actualizar/${id}`,cuerpo).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -325,7 +325,7 @@ obtenerDatos():Observable<any> {
   }
 
   borrarSoftId(id:any){
-    return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.delete<any>(`${this.url}softskill/borrar/${id}`).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -342,7 +342,7 @@ obtenerDatos():Observable<any> {
 
   //----------------------------Proyectos--------------------------------------------
   obtenerProyectoId(id:any):Observable<ProyectoI>{
-    return this.Http.get<ProyectoI>(`${this.url}proyecto/${id}`,{ headers: this.agregarAuthorizationHeader() });//falta ver todavia
+    return this.Http.get<ProyectoI>(`${this.url}proyecto/${id}`);//falta ver todavia
   }
 
   obtenerProyecto(){
@@ -350,7 +350,7 @@ obtenerDatos():Observable<any> {
   }
 
   crearProyecto(pro:ProyectoI):Observable<ProyectoI>{
-    return this.Http.post<ProyectoI>(this.url+"proyecto/nueva",pro,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.post<ProyectoI>(this.url+"proyecto/nueva",pro).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -369,7 +369,7 @@ obtenerDatos():Observable<any> {
   }
   
   editarProyecto(id:any,cuerpo:any):Observable<ProyectoI>{
-    return this.Http.put<ProyectoI>(`${this.url}proyecto/actualizar/${id}`,cuerpo,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.put<ProyectoI>(`${this.url}proyecto/actualizar/${id}`,cuerpo).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {
@@ -388,7 +388,7 @@ obtenerDatos():Observable<any> {
   }
 
   borrarProyeto(id:any){
-    return this.Http.delete<any>(`${this.url}proyecto/borrar/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.Http.delete<any>(`${this.url}proyecto/borrar/${id}`).pipe(
       catchError(e => {
 
         if (this.isNoAutorizado(e)) {

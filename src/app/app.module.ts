@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptor } from './componentes/inicio-sesion/interceptors/token.interceptor';
+import { AuthInterceptor } from './componentes/inicio-sesion/interceptors/auth.interceptor';
 
 
 import { PorfolioService } from './servicios/porfolio.service';
@@ -51,7 +53,9 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     ReactiveFormsModule
   ],
   providers: [
-    PorfolioService
+    PorfolioService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   
   ],
   bootstrap: [AppComponent]
