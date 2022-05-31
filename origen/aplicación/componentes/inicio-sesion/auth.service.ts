@@ -43,7 +43,7 @@ import { Usuario } from './usuario';
     loguin(usuario:Usuario):Observable<any>{
       const urlEndpoint = 'https://apiportfolio-ap.herokuapp.com/oauth/token';
 
-      const credenciales = btoa('AngularMiProyectoAP' + ':' + '');
+      const credenciales = btoa('AngularMiProyectoAP' + ':' + '*****');
 
       const httpHeaders = new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
