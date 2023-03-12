@@ -20,7 +20,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class PorfolioService {
-url:string="https://apiportfolio-ap.herokuapp.com/api/";
+url:string="https://api-ap-production.up.railway.app/api/";
 //private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
 private _refresh$ = new Subject<void>();
