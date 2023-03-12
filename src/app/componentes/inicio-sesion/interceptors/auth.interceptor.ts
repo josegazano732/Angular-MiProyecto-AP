@@ -6,8 +6,9 @@ import Swal from 'sweetalert2';
 import { catchError } from 'rxjs/operators';
 
 import { Observable, throwError } from 'rxjs';
-import { AuthService } from '../auth.service';
+
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()
