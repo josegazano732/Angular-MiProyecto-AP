@@ -11,8 +11,10 @@ import { SkillI } from '../componentes/models/Skill/skill.interface';
 import { ProyectoI } from '../componentes/models/proyecto/proyecto.interface';
 import { PersonaI } from '../componentes/models/persona/persona.interface';
 import { Router } from '@angular/router';
-import { AuthService } from '../componentes/inicio-sesion/auth.service';
+//import { AuthService } from '../componentes/inicio-sesion/auth.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../componentes/inicio-sesion/auth.service';
+
 
 
 
