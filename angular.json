@@ -34,7 +34,6 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
-              
             ]
           },
           "configurations": {
@@ -104,6 +103,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "mi-proyectoAP:build:production",
+            "firebaseProject": "ap-jlg",
+            "firebaseHostingSite": "ap-jlg"
           }
         }
       }

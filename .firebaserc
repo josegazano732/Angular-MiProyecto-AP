@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ap-jlg"
+  },
+  "targets": {
+    "ap-jlg": {
+      "hosting": {
+        "mi-proyectoAP": [
+          "ap-jlg"
+        ]
+      }
+    }
   }
 }
