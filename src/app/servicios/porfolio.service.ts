@@ -23,7 +23,7 @@ import { AuthService } from '../componentes/inicio-sesion/auth.service';
   providedIn: 'root'
 })
 export class PorfolioService {
-url:string="https://api-ap-production.up.railway.app/api/";
+url:string="https://apirest-ap-production-0d74.up.railway.app/api/";
 //private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
 private _refresh$ = new Subject<void>();
