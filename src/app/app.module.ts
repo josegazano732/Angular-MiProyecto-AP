@@ -29,6 +29,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 
 
 @NgModule({
+  // Define los componentes (vistas) que pertenecen a este módulo
   declarations: [
     AppComponent,
     EncabezadoComponent,
@@ -43,6 +44,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     
     
   ],
+  // Clases que pertenecen a otros módulos y que queremos usar en este módulo.
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -52,12 +54,16 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     FormsModule,
     ReactiveFormsModule
   ],
+  // Servicios que queremos que estén disponibles en este módulo.
   providers: [
     PorfolioService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   
   ],
+  // Componente principal que inicia la aplicación.
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
